@@ -16,6 +16,7 @@
 #import "IssueViewController.h"
 #import "EventDetailsViewController.h"
 #import "IssuesTabBarController.h"
+#import "EventCreationViewController.h"
 
 
 @interface AppDelegate ()
@@ -55,11 +56,8 @@
 //    self.tabBarController.viewControllers = controllers;
     
     
-//    self.window.rootViewController = [[IssueViewController alloc] init];
-    self.window.rootViewController = [[DiscoverViewController alloc] init];
-
-//    self.window.rootViewController = [[IssuesTabBarController alloc] init];
-
+    self.window.rootViewController = [[EventCreationViewController alloc] init];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;    
