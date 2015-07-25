@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UITextField *nameField;
 @property (strong, nonatomic) UITextField *emailField;
 @property (strong, nonatomic) UITextField *hpNumberField;
+@property (strong, nonatomic) UITextField *ICField;
+@property (strong, nonatomic) UITextField *passwordField;
 
 
 @end

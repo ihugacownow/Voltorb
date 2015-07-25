@@ -57,10 +57,24 @@
 
 #pragma mark - Sign up
 - (void) signUp {
-    PFObject *user = [PFObject objectWithClassName:@"User"];
+    PFUser *user = [PFUser user];
     NSLog(@"button pressed");
     NSLog(@"%@", self.signUpView.nameField.text);
-    user[@"firstName"] = @"name";
+    user[@"firstName"] = self.signUpView.nameField.text;
+    user[@"lastName"] = @""; // get around the lastName field in Parse
+    user[@"email"] = self.signUpView.emailField.text;
+    user[@"handphone Number"] = self.signUpView.hpNumberField.text;
+    user[@"username"] = self.signUpView.ICField.text;
+    NSLog(@"password entry is %@", self.signUpView.passwordField.text);
+    user.password = self.signUpView.passwordField.text;
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"user saved to Parse");
+        } else {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+     }];
+    
 }
 
 /*
