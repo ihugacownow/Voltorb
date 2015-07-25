@@ -31,6 +31,9 @@
 		4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */; };
 		4CEC81361B63FDAA009DBC60 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC81351B63FDAA009DBC60 /* testImage.jpg */; };
 		4CEC813B1B64022A009DBC60 /* verified.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC813A1B64022A009DBC60 /* verified.png */; };
+		4CEC813F1B641608009DBC60 /* EventCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC813E1B641608009DBC60 /* EventCreationView.m */; };
+		4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81411B641611009DBC60 /* EventCreationViewController.m */; };
+		4CEC81441B641C59009DBC60 /* editImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC81431B641C59009DBC60 /* editImage.png */; };
 		4E5C61141B63521A00EC7D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61131B63521A00EC7D0A /* main.m */; };
 		4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61161B63521A00EC7D0A /* AppDelegate.m */; };
 		4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C611E1B63521A00EC7D0A /* Images.xcassets */; };
@@ -48,6 +51,7 @@
 		4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */; };
 		4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */; };
 		4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */; };
+		4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +102,11 @@
 		4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueListingViewController.m; sourceTree = "<group>"; };
 		4CEC81351B63FDAA009DBC60 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		4CEC813A1B64022A009DBC60 /* verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified.png; sourceTree = "<group>"; };
+		4CEC813D1B641608009DBC60 /* EventCreationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCreationView.h; sourceTree = "<group>"; };
+		4CEC813E1B641608009DBC60 /* EventCreationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCreationView.m; sourceTree = "<group>"; };
+		4CEC81401B641611009DBC60 /* EventCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCreationViewController.h; sourceTree = "<group>"; };
+		4CEC81411B641611009DBC60 /* EventCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCreationViewController.m; sourceTree = "<group>"; };
+		4CEC81431B641C59009DBC60 /* editImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editImage.png; sourceTree = "<group>"; };
 		4E5C610E1B63521A00EC7D0A /* voltorp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voltorp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5C61121B63521A00EC7D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E5C61131B63521A00EC7D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -237,6 +246,17 @@
 			name = "Issue Listing";
 			sourceTree = "<group>";
 		};
+		4CEC813C1B6415F1009DBC60 /* Event Creation */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC813D1B641608009DBC60 /* EventCreationView.h */,
+				4CEC813E1B641608009DBC60 /* EventCreationView.m */,
+				4CEC81401B641611009DBC60 /* EventCreationViewController.h */,
+				4CEC81411B641611009DBC60 /* EventCreationViewController.m */,
+			);
+			name = "Event Creation";
+			sourceTree = "<group>";
+		};
 		4E5C61051B63521A00EC7D0A = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				095448911B640206001ECD22 /* Issue Tracking */,
+				4CEC81431B641C59009DBC60 /* editImage.png */,
 				4CEC813A1B64022A009DBC60 /* verified.png */,
 				4CEC81351B63FDAA009DBC60 /* testImage.jpg */,
 				4E5C61611B63E56700EC7D0A /* Archived Issues */,
@@ -271,6 +292,7 @@
 				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
 				4E5C614A1B63777C00EC7D0A /* BaseViewController.h */,
 				4E5C614B1B63777C00EC7D0A /* BaseViewController.m */,
+				4CEC813C1B6415F1009DBC60 /* Event Creation */,
 				4E5C61401B63635000EC7D0A /* Event Details */,
 				4E5C613F1B63634800EC7D0A /* Discover  */,
 				4E5C613E1B63633100EC7D0A /* Sign Up / Log In */,
@@ -460,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */,
+				4CEC81441B641C59009DBC60 /* editImage.png in Resources */,
 				4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */,
 				4CEC81361B63FDAA009DBC60 /* testImage.jpg in Resources */,
 				4E5C614E1B63794100EC7D0A /* Default-568h@2x.png in Resources */,
@@ -515,6 +538,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0954489B1B6423B4001ECD22 /* SignUpView.m in Sources */,
+				4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */,
+				4CEC813F1B641608009DBC60 /* EventCreationView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
@@ -524,6 +549,8 @@
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
 				4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */,
 				4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */,
+				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
+				4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
@@ -595,7 +622,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -632,7 +659,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -650,6 +677,7 @@
 				INFOPLIST_FILE = voltorp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -666,6 +694,7 @@
 				INFOPLIST_FILE = voltorp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -684,6 +713,7 @@
 				);
 				INFOPLIST_FILE = voltorpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voltorp.app/voltorp";
 			};
@@ -699,6 +729,7 @@
 				);
 				INFOPLIST_FILE = voltorpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voltorp.app/voltorp";
 			};
