@@ -15,6 +15,7 @@
 #import "DiscoverViewController.h" 
 #import "SignUpViewController.h" 
 #import "ProfileViewController.h"
+#import "IssueViewController.h"
 
 
 @interface AppDelegate ()
@@ -56,6 +57,7 @@
     
 //    self.window.rootViewController = [[ProfileViewController alloc] init];
     self.window.rootViewController = [[SignUpViewController alloc] init];
+//    self.window.rootViewController = [[IssueViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

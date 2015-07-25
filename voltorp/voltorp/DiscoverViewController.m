@@ -8,11 +8,19 @@
 
 #import "DiscoverViewController.h"
 #import <ArcGIS/ArcGIS.h>
+#import <Parse/Parse.h>
+@import CoreLocation;
 
-@interface DiscoverViewController ()
+@interface DiscoverViewController () <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, CLLocationManagerDelegate>
+
+
 
 @property (strong, nonatomic) AGSMapView *mapView;
-@property (strong, nonatomic) UIView *listView;
+@property (strong, nonatomic) UITableView *listView;
+@property (strong, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) NSMutableArray *nearbyIssues;
+
 
 @end
 
@@ -25,11 +33,49 @@
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://e1.onemap.sg/arcgis/rest/services/SM128/MapServer"];
+    
+    // Map View
+    self.mapView = [[AGSMapView alloc] initWithFrame:CGRectZero];
+    
     AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
+    self.mapView.layerDelegate = self;
+
     [self.view addSubview:self.mapView];
     
+    self.listView = [[UITableView alloc] initWithFrame:CGRectZero];
+    
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    
+    self.nearbyIssues = [NSMutableArray array];
+    [self.nearbyIssues addObject:@"1"];
+    [self.nearbyIssues addObject:@"2"];
+
+//    [self.nearbyIssues addObject:(1.381905,103.844818)];
+    
+    
+    
+    
 }
+
+- (void)mapViewDidLoad:(AGSMapView *) mapView {
+    //do something now that the map is loaded
+    //for example, show the current location on the map
+    [mapView.locationDisplay startDataSource];
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,16 +84,44 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(100.00, 100.00, 500.00, 500.00);
+    self.mapView.frame = CGRectMake(0.00, 0.00, 300.00, 200.00);
+    self.mapView.center = self.view.center;
+    
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark Location Manager Delegate Methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    self.currentLocation = [locations lastObject];
+    NSLog(@"%@", self.currentLocation);
+   
 }
-*/
+
+
+
+
+#pragma mark - Database calls
+
+
+- (NSMutableArray *) retrieveAllIssues{
+    NSLog(@"retrieving all issues");
+    PFQuery *query = [PFQuery queryWithClassName:
+                      @"Issue"];
+
+    NSArray *pfo = [query findObjects];
+    if ([pfo count]) {
+        for (PFObject *obj in pfo) {
+            NSLog(@"pf object is %@", obj);
+            NSLog(@"current issue description is %@", obj[@"description"]);
+            NSLog(@"current issue location is %@", obj[@"locationTuple"]);
+            
+        }
+        
+    } else {
+        NSLog(@"error in retrieving user issues");
+    }
+    
+    return [[NSMutableArray alloc] init];
+}
 
 @end

@@ -12,6 +12,12 @@
 
 // buttons
 @property (nonatomic, strong) UIButton *submitButton;
-@property (nonatomic, strong) UIButton *takePhotoButton;
+
+// UIImageView for photo
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+// text fields
+@property (nonatomic, strong) UITextField *detailsTextField;
+@property (nonatomic, strong) UITextField *incidentLocationTextField;
 
 @end

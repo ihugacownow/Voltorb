@@ -8,10 +8,12 @@
 
 #import "IssueViewController.h"
 #import "IssueView.h"
+#import <Parse/Parse.h>
 
 @interface IssueViewController ()
 
 @property (nonatomic, strong) IssueView *issueView;
+
 @end
 
 @implementation IssueViewController
@@ -20,7 +22,14 @@
     [super viewDidLoad];
     
     self.issueView = [[IssueView alloc] initWithFrame:CGRectZero];
+    self.issueView.detailsTextField.delegate = self;
+    self.issueView.incidentLocationTextField.delegate = self; 
+    
     [self.view addSubview:self.issueView];
+    
+    
+    // further set up of IssueView
+    [self addGestureRecognizers];    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,12 +43,44 @@
     
 }
 
-# pragma mark - selectors
-- (void) addSelectors {
-//    [self.takePhotoButton addTarget:self
-//                         action:@selector(takePhoto:)
-//               forControlEvents:UIControlEventTouchUpInside];
+# pragma mark - gesture recognizers
+- (void) addGestureRecognizers {
+
+    UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(tapImageView:)];
+    tapGesture1.numberOfTapsRequired = 1;
+    [tapGesture1 setDelegate:self];
+    [self.issueView.imageView addGestureRecognizer:tapGesture1];
 }
+
+- (void) addSelectors {
+    // selector for submit button
+    [self.issueView.submitButton addTarget:self
+               action:@selector(submitButtonPressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+}
+
+# pragma mark - selectors
+// TODO: waichoong - add picker here
+- (void) tapImageView: (id)sender {
+    //handle Tap...
+    NSLog(@"tapped image view to upload image");
+}
+
+- (IBAction) submitButtonPressed:(id)sender
+{
+    NSLog(@"submit button pressed");
+    // 1. TODO: check if all fields are complete
+    
+    
+    // 2. update to database
+    [self uploadIssueToParse];
+}
+
+# pragma mark - database queries
+- (void) uploadIssueToParse {
+    // TODO: upload to parse
+}
+
 
 /*
 #pragma mark - Navigation

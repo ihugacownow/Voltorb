@@ -183,6 +183,13 @@
 			name = "Issue Creation";
 			sourceTree = "<group>";
 		};
+		4CEC81211B63D026009DBC60 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		4E5C61051B63521A00EC7D0A = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +214,7 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				4CEC81211B63D026009DBC60 /* Helpers */,
 				4CEC81141B63C468009DBC60 /* Issue Creation */,
 				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
 				4E5C614A1B63777C00EC7D0A /* BaseViewController.h */,
