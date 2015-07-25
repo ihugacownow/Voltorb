@@ -9,13 +9,12 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "RootViewController.h"
-#import "ChatViewController.h" 
 #import "EventDetailsViewController.h"
-#import "CheckInViewController.h" 
 #import "DiscoverViewController.h" 
 #import "SignUpViewController.h" 
 #import "ProfileViewController.h"
 #import "IssueViewController.h"
+#import "EventDetailsViewController.h"
 
 
 @interface AppDelegate ()
@@ -42,10 +41,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    ChatViewController *vcOne = [[ChatViewController alloc] init];
-//    vcOne.view.backgroundColor = 
-    EventDetailsViewController *vcTwo = [[EventDetailsViewController alloc] init];
-    CheckInViewController *vcFour = [[CheckInViewController alloc] init];
+//    ChatViewController *vcOne = [[ChatViewController alloc] init];
+//    vcOne.view.backgroundColor =
+//    EventDetailsViewController *vcTwo = [[EventDetailsViewController alloc] init];
+//    CheckInViewController *vcFour = [[CheckInViewController alloc] init];
     
 //    NSArray *controllers = [NSArray arrayWithObjects:vcOne, vcTwo, vcThree, vcFour, nil];
 //    for (UIViewController *vc in controllers) {
@@ -55,7 +54,7 @@
 //    self.tabBarController.viewControllers = controllers;
     
     
-    self.window.rootViewController = [[SignUpViewController alloc] init];
+    self.window.rootViewController = [[EventDetailsViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

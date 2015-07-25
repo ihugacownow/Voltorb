@@ -1,25 +1,22 @@
 //
-//  ChatViewController.m
+//  IssueListingViewController.m
 //  voltorp
 //
-//  Created by Wu Wai Choong on 25/7/15.
+//  Created by Jevon Yeoh on 7/26/15.
 //  Copyright (c) 2015 Yeohmen. All rights reserved.
 //
 
-#import "ChatViewController.h"
+#import "IssueListingViewController.h"
 
-@interface ChatViewController ()
+@interface IssueListingViewController ()
 
 @end
 
-@implementation ChatViewController
+@implementation IssueListingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:100.00 green:0.00 blue:0.00 alpha:1.00];
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Chat" image:[UIImage imageNamed:@"test"] selectedImage:[UIImage imageNamed:@"test"]];
-    
 }
 
 - (void)didReceiveMemoryWarning {

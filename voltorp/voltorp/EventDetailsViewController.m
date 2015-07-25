@@ -7,8 +7,11 @@
 //
 
 #import "EventDetailsViewController.h"
+#import "EventDetailsView.h"
 
 @interface EventDetailsViewController ()
+
+@property (nonatomic, strong) EventDetailsView *eventDetailsView;
 
 @end
 
@@ -17,9 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:0.00 green:100.00 blue:0.00 alpha:1.00];
-    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Event" image:[UIImage imageNamed:@"test"] selectedImage:[UIImage imageNamed:@"test"]];
-
+    self.eventDetailsView = [[EventDetailsView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.eventDetailsView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +30,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews {
+    self.eventDetailsView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
 /*
 #pragma mark - Navigation
 

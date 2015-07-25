@@ -26,16 +26,19 @@
 		4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81181B63C47A009DBC60 /* ProfileViewController.m */; };
 		4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811C1B63C490009DBC60 /* IssueView.m */; };
 		4CEC81201B63C490009DBC60 /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811E1B63C490009DBC60 /* IssueViewController.m */; };
+		4CEC812D1B63EEA0009DBC60 /* EventDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC812C1B63EEA0009DBC60 /* EventDetailsView.m */; };
+		4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81301B63EF52009DBC60 /* IssueListingView.m */; };
+		4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */; };
+		4CEC81361B63FDAA009DBC60 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC81351B63FDAA009DBC60 /* testImage.jpg */; };
+		4CEC813B1B64022A009DBC60 /* verified.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC813A1B64022A009DBC60 /* verified.png */; };
 		4E5C61141B63521A00EC7D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61131B63521A00EC7D0A /* main.m */; };
 		4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61161B63521A00EC7D0A /* AppDelegate.m */; };
 		4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C611E1B63521A00EC7D0A /* Images.xcassets */; };
 		4E5C612E1B63521A00EC7D0A /* voltorpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C612D1B63521A00EC7D0A /* voltorpTests.m */; };
 		4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61381B63602200EC7D0A /* RootViewController.m */; };
-		4E5C61461B6368E100EC7D0A /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61451B6368E100EC7D0A /* ChatViewController.m */; };
 		4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61481B63692700EC7D0A /* EventDetailsViewController.m */; };
 		4E5C614C1B63777C00EC7D0A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C614B1B63777C00EC7D0A /* BaseViewController.m */; };
 		4E5C614E1B63794100EC7D0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C614D1B63794100EC7D0A /* Default-568h@2x.png */; };
-		4E5C61511B637B6600EC7D0A /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61501B637B6600EC7D0A /* CheckInViewController.m */; };
 		4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61531B637B7300EC7D0A /* DiscoverViewController.m */; };
 		4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61561B637B8700EC7D0A /* SignUpViewController.m */; };
 		4E5C61591B63A17F00EC7D0A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C61581B63A17F00EC7D0A /* Social.framework */; };
@@ -83,6 +86,14 @@
 		4CEC811C1B63C490009DBC60 /* IssueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueView.m; sourceTree = "<group>"; };
 		4CEC811D1B63C490009DBC60 /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
 		4CEC811E1B63C490009DBC60 /* IssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueViewController.m; sourceTree = "<group>"; };
+		4CEC812B1B63EEA0009DBC60 /* EventDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsView.h; sourceTree = "<group>"; };
+		4CEC812C1B63EEA0009DBC60 /* EventDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsView.m; sourceTree = "<group>"; };
+		4CEC812F1B63EF52009DBC60 /* IssueListingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueListingView.h; sourceTree = "<group>"; };
+		4CEC81301B63EF52009DBC60 /* IssueListingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueListingView.m; sourceTree = "<group>"; };
+		4CEC81321B63EF61009DBC60 /* IssueListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueListingViewController.h; sourceTree = "<group>"; };
+		4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueListingViewController.m; sourceTree = "<group>"; };
+		4CEC81351B63FDAA009DBC60 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
+		4CEC813A1B64022A009DBC60 /* verified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verified.png; sourceTree = "<group>"; };
 		4E5C610E1B63521A00EC7D0A /* voltorp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voltorp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5C61121B63521A00EC7D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E5C61131B63521A00EC7D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,15 +105,11 @@
 		4E5C612D1B63521A00EC7D0A /* voltorpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = voltorpTests.m; sourceTree = "<group>"; };
 		4E5C61371B63602200EC7D0A /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = voltorp/RootViewController.h; sourceTree = "<group>"; };
 		4E5C61381B63602200EC7D0A /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = voltorp/RootViewController.m; sourceTree = "<group>"; };
-		4E5C61441B6368E100EC7D0A /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
-		4E5C61451B6368E100EC7D0A /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		4E5C61471B63692700EC7D0A /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		4E5C61481B63692700EC7D0A /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		4E5C614A1B63777C00EC7D0A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		4E5C614B1B63777C00EC7D0A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		4E5C614D1B63794100EC7D0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4E5C614F1B637B6600EC7D0A /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
-		4E5C61501B637B6600EC7D0A /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		4E5C61521B637B7300EC7D0A /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		4E5C61531B637B7300EC7D0A /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		4E5C61551B637B8700EC7D0A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -207,6 +214,17 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		4CEC812E1B63EF43009DBC60 /* Issue Listing */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC81301B63EF52009DBC60 /* IssueListingView.m */,
+				4CEC812F1B63EF52009DBC60 /* IssueListingView.h */,
+				4CEC81321B63EF61009DBC60 /* IssueListingViewController.h */,
+				4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */,
+			);
+			name = "Issue Listing";
+			sourceTree = "<group>";
+		};
 		4E5C61051B63521A00EC7D0A = {
 			isa = PBXGroup;
 			children = (
@@ -231,14 +249,18 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				095448911B640206001ECD22 /* Issue Tracking */,
+=======
+				4CEC813A1B64022A009DBC60 /* verified.png */,
+				4CEC81351B63FDAA009DBC60 /* testImage.jpg */,
+>>>>>>> 25f9b845717f3d4745145fa91616bb29fe9204d0
 				4CEC81211B63D026009DBC60 /* Helpers */,
+				4CEC812E1B63EF43009DBC60 /* Issue Listing */,
 				4CEC81141B63C468009DBC60 /* Issue Creation */,
 				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
 				4E5C614A1B63777C00EC7D0A /* BaseViewController.h */,
 				4E5C614B1B63777C00EC7D0A /* BaseViewController.m */,
-				4E5C61431B63637D00EC7D0A /* Chat */,
-				4E5C61421B63637200EC7D0A /* Check In */,
 				4E5C61401B63635000EC7D0A /* Event Details */,
 				4E5C613F1B63634800EC7D0A /* Discover  */,
 				4E5C613E1B63633100EC7D0A /* Sign Up / Log In */,
@@ -324,26 +346,10 @@
 			children = (
 				4E5C61471B63692700EC7D0A /* EventDetailsViewController.h */,
 				4E5C61481B63692700EC7D0A /* EventDetailsViewController.m */,
+				4CEC812B1B63EEA0009DBC60 /* EventDetailsView.h */,
+				4CEC812C1B63EEA0009DBC60 /* EventDetailsView.m */,
 			);
 			name = "Event Details";
-			sourceTree = "<group>";
-		};
-		4E5C61421B63637200EC7D0A /* Check In */ = {
-			isa = PBXGroup;
-			children = (
-				4E5C614F1B637B6600EC7D0A /* CheckInViewController.h */,
-				4E5C61501B637B6600EC7D0A /* CheckInViewController.m */,
-			);
-			name = "Check In";
-			sourceTree = "<group>";
-		};
-		4E5C61431B63637D00EC7D0A /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				4E5C61441B6368E100EC7D0A /* ChatViewController.h */,
-				4E5C61451B6368E100EC7D0A /* ChatViewController.m */,
-			);
-			name = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,7 +436,9 @@
 			files = (
 				4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */,
 				4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */,
+				4CEC81361B63FDAA009DBC60 /* testImage.jpg in Resources */,
 				4E5C614E1B63794100EC7D0A /* Default-568h@2x.png in Resources */,
+				4CEC813B1B64022A009DBC60 /* verified.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,20 +489,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
+				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
 				4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */,
 				4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */,
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
 				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
+<<<<<<< HEAD
 				4E5C61461B6368E100EC7D0A /* ChatViewController.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
+=======
+>>>>>>> 25f9b845717f3d4745145fa91616bb29fe9204d0
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
 				4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */,
+				4CEC812D1B63EEA0009DBC60 /* EventDetailsView.m in Sources */,
 				4E5C614C1B63777C00EC7D0A /* BaseViewController.m in Sources */,
 				095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */,
 				4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */,
-				4E5C61511B637B6600EC7D0A /* CheckInViewController.m in Sources */,
 				4E5C61141B63521A00EC7D0A /* main.m in Sources */,
 				4CEC81201B63C490009DBC60 /* IssueViewController.m in Sources */,
 			);
