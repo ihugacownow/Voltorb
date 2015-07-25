@@ -19,9 +19,9 @@
 		095448861B635613001ECD22 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 095448851B635613001ECD22 /* libsqlite3.dylib */; };
 		0954488B1B63CB93001ECD22 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0954488A1B63CB93001ECD22 /* Bolts.framework */; };
 		0954488D1B63CB9D001ECD22 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0954488C1B63CB9D001ECD22 /* Parse.framework */; };
-		095448901B63CBDE001ECD22 /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		095448941B640231001ECD22 /* IssueTrackerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448931B640231001ECD22 /* IssueTrackerView.m */; };
 		095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448961B640249001ECD22 /* IssueTrackerViewController.m */; };
+		0954489B1B6423B4001ECD22 /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81161B63C47A009DBC60 /* ProfileView.m */; };
 		4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81181B63C47A009DBC60 /* ProfileViewController.m */; };
 		4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811C1B63C490009DBC60 /* IssueView.m */; };
@@ -362,24 +362,6 @@
 			name = "Event Details";
 			sourceTree = "<group>";
 		};
-		4E5C61421B63637200EC7D0A /* Check In */ = {
-			isa = PBXGroup;
-			children = (
-				4E5C614F1B637B6600EC7D0A /* CheckInViewController.h */,
-				4E5C61501B637B6600EC7D0A /* CheckInViewController.m */,
-			);
-			name = "Check In";
-			sourceTree = "<group>";
-		};
-		4E5C61431B63637D00EC7D0A /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				4E5C61441B6368E100EC7D0A /* ChatViewController.h */,
-				4E5C61451B6368E100EC7D0A /* ChatViewController.m */,
-			);
-			name = Chat;
-			sourceTree = "<group>";
-		};
 		4E5C61611B63E56700EC7D0A /* Archived Issues */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0954489B1B6423B4001ECD22 /* SignUpView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,

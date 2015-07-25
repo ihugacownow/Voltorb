@@ -10,4 +10,7 @@
 
 @interface IssueTrackerView : UIView
 
+// scroll view
+@property (nonatomic, strong) UIScrollView *postsScrollView;
+
 @end

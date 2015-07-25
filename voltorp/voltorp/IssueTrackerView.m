@@ -7,7 +7,6 @@
 //
 
 #import "IssueTrackerView.h"
-#import "PostView.h"
 #import <Parse/parse.h>
 
 @interface IssueTrackerView()
@@ -25,11 +24,6 @@
 // buttons
 @property (nonatomic, strong) UIButton *eventButton;
 @property (nonatomic, strong) UIButton *resolutionButton;
-
-// scroll view
-@property (nonatomic, strong) UIScrollView *postsScrollView;
-
-
 
 @end
 
@@ -50,14 +44,17 @@
     
     self.issueImageView.frame = CGRectMake(170, 20, 120, 120);
     
-    
+    double scrollViewWidth = 265;
+    self.postsScrollView = [[UIScrollView alloc] initWithFrame: CGRectMake((self.bounds.size.width - scrollViewWidth) / 2, 180, scrollViewWidth, 200)];
+    self.postsScrollView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.postsScrollView.layer.borderWidth = 1.0;
+    [self addSubview:self.postsScrollView];
 }
 
 #pragma mark - load UI
 - (void) loadUI {
     [self loadBanner];
     [self loadDiscussionHeader];
-    [self loadPosts];
     
 }
 
@@ -96,33 +93,6 @@
     [self.resolutionButton setTitle: @"Resolved" forState: UIControlStateNormal];
     [self.resolutionButton setBackgroundColor: [UIColor redColor]];
     [self addSubview:self.resolutionButton];
-}
-
-- (void) loadPosts {
-    
-    NSArray *posts = @[[NSDictionary dictionaryWithObjectsAndKeys:
-                        [UIImage imageNamed:@"verified.png"], @"userPic",
-                        @"Wai Wu", @"username",
-                        @"This is a description", @"description",
-                        nil],
-                       [NSDictionary dictionaryWithObjectsAndKeys:
-                        [UIImage imageNamed:@"testImage.png"], @"userPic",
-                        @"Jevon Yeoh", @"username",
-                        @"description is this", @"description",
-                        nil]];
-    
-    float yOffSet = 0;
-    // list posts
-    for (int i = 0; i < [posts count]; i++) {
-        
-    }
-    
-}
-
-#pragma mark - database query 
-
-- (void) databaseQuery {
-    
 }
 
 /*
