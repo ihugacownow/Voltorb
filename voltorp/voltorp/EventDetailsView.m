@@ -16,9 +16,6 @@
 // labels
 @property (nonatomic, strong) UILabel *peopleGoingLabel;
 
-@property (nonatomic, strong) UILabel *t1;
-@property (nonatomic, strong) UILabel *t2;
-
 @end
 
 @implementation EventDetailsView

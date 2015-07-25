@@ -15,8 +15,9 @@
 #import "ProfileViewController.h"
 #import "IssueViewController.h"
 #import "EventDetailsViewController.h"
+#import "IssueTrackerViewController.h"
 #import "IssuesTabBarController.h"
-
+#import "EventCreationViewController.h"
 
 @interface AppDelegate ()
 
@@ -57,6 +58,8 @@
     
 //    self.tabBarController.viewControllers = controllers;
     
+    self.window.rootViewController = [[IssueTrackerViewController alloc] init];
+    self.window.rootViewController = [[EventCreationViewController alloc] init];
     
 //    self.window.rootViewController = [[IssueViewController alloc] init];
 //    self.window.rootViewController = [[DiscoverViewController alloc] init];
@@ -65,6 +68,7 @@
 
     self.firstViewController = [[SignUpViewController alloc] init];
     self.navViewController = [[UINavigationController alloc] initWithRootViewController:self.firstViewController];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
