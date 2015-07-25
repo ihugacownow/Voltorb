@@ -102,7 +102,7 @@
     [query whereKey:@"objectId" equalTo:userObjectID];
     NSArray *results = [query findObjects];
     PFObject *pfo = [results objectAtIndex:0];
-    NSData *currData = [pfo[@"profilePhoto"] getData];
+    NSData *currData = [pfo[@"profilePicture"] getData];
     if (currData) {
         UIImage *pp = [UIImage imageWithData:currData];
         cell.imageView.image = pp;
