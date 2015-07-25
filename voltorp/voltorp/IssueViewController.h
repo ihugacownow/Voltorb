@@ -10,6 +10,6 @@
 #import "BaseViewController.h"
 
 
-@interface IssueViewController : BaseViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface IssueViewController : BaseViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @end
