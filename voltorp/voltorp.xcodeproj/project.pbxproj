@@ -249,12 +249,9 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				095448911B640206001ECD22 /* Issue Tracking */,
-=======
 				4CEC813A1B64022A009DBC60 /* verified.png */,
 				4CEC81351B63FDAA009DBC60 /* testImage.jpg */,
->>>>>>> 25f9b845717f3d4745145fa91616bb29fe9204d0
 				4CEC81211B63D026009DBC60 /* Helpers */,
 				4CEC812E1B63EF43009DBC60 /* Issue Listing */,
 				4CEC81141B63C468009DBC60 /* Issue Creation */,
