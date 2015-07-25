@@ -15,6 +15,7 @@
 #import "ProfileViewController.h"
 #import "IssueViewController.h"
 #import "EventDetailsViewController.h"
+#import "IssueTrackerViewController.h"
 
 
 @interface AppDelegate ()
@@ -54,7 +55,7 @@
 //    self.tabBarController.viewControllers = controllers;
     
     
-    self.window.rootViewController = [[EventDetailsViewController alloc] init];
+    self.window.rootViewController = [[IssueTrackerViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

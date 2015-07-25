@@ -494,7 +494,6 @@
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
 				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
-				4E5C61461B6368E100EC7D0A /* ChatViewController.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
 				4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */,

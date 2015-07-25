@@ -19,7 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.issueTrackerView = [[IssueTrackerView alloc] initWithFrame: CGRectZero];
+    [self.view addSubview: self.issueTrackerView];
     // Do any additional setup after loading the view.
+}
+
+- (void) viewDidLayoutSubviews {
+    self.issueTrackerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
