@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "SignUpView.h"
+#import "DiscoverViewController.h"
 #import <Parse/parse.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -77,6 +78,11 @@
         }
      }];
     
+}
+
+- (void) goToDiscoverVC {
+    DiscoverViewController *vc = [[DiscoverViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction) tapImageView:(id)sender {

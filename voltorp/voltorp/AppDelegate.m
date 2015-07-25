@@ -20,6 +20,8 @@
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) UINavigationController *navViewController;
+@property (strong, nonatomic) BaseViewController *firstViewController;
 @end
 
 @implementation AppDelegate
@@ -39,9 +41,10 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.tabBarController = [[UITabBarController alloc] init];
+//    self.tabBarController = [[UITabBarController alloc] init];
 //    ChatViewController *vcOne = [[ChatViewController alloc] init];
 //    vcOne.view.backgroundColor =
 //    EventDetailsViewController *vcTwo = [[EventDetailsViewController alloc] init];
@@ -56,13 +59,15 @@
     
     
 //    self.window.rootViewController = [[IssueViewController alloc] init];
-    self.window.rootViewController = [[DiscoverViewController alloc] init];
+//    self.window.rootViewController = [[DiscoverViewController alloc] init];
 
 //    self.window.rootViewController = [[IssuesTabBarController alloc] init];
 
+    self.firstViewController = [[SignUpViewController alloc] init];
+    self.navViewController = [[UINavigationController alloc] initWithRootViewController:self.firstViewController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    return YES;    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
