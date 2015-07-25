@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SignUpViewController : BaseViewController
+@interface SignUpViewController : BaseViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
