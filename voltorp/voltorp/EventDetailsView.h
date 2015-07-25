@@ -10,4 +10,18 @@
 
 @interface EventDetailsView : UIView
 
+// labels
+@property (nonatomic, strong) UILabel *locationLabel;
+@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UILabel *descriptionLabel;
+@property (nonatomic, strong) UILabel *eventNameLabel;
+
+// scroll view
+@property (nonatomic, strong) UIScrollView *peopleGoingScrollView;
+
+// buttons
+@property (nonatomic, strong) UIButton *editEventButton;
+@property (nonatomic, strong) UIButton *signUpForEventButton;
+
+
 @end

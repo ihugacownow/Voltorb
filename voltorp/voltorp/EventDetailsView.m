@@ -15,21 +15,10 @@
 @property (nonatomic, strong) UIImageView *verifiedEventImageView;
 
 // labels
-@property (nonatomic, strong) UILabel *locationLabel;
-@property (nonatomic, strong) UILabel *timeLabel;
-@property (nonatomic, strong) UILabel *descriptionLabel;
 @property (nonatomic, strong) UILabel *peopleGoingLabel;
-@property (nonatomic, strong) UILabel *eventNameLabel;
 
 @property (nonatomic, strong) UILabel *t1;
 @property (nonatomic, strong) UILabel *t2;
-
-// buttons
-@property (nonatomic, strong) UIButton *editEventButton;
-@property (nonatomic, strong) UIButton *signUpForEventButton;
-
-// scroll view
-@property (nonatomic, strong) UIScrollView *peopleGoingScrollView;
 
 @end
 
@@ -70,7 +59,7 @@
     
     // edit scroll view
     double scrollViewWidth = 280;
-    self.peopleGoingScrollView.frame = CGRectMake((self.bounds.size.width - scrollViewWidth) / 2, 350, scrollViewWidth, 100);
+    self.peopleGoingScrollView.frame = CGRectMake((self.bounds.size.width - scrollViewWidth) / 2, 360, scrollViewWidth, 100);
 }
 
 - (void) loadUI {
@@ -91,9 +80,9 @@
 }
 
 - (void) loadLabels {
-    self.eventNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 120, 200, 30)];
+    self.eventNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 110, 200, 30)];
     self.eventNameLabel.text = @"Event name";
-    self.eventNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    self.eventNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0];
 //    self.eventNameLabel.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.eventNameLabel.layer.borderWidth = 1.0;
     [self addSubview:self.eventNameLabel];
@@ -112,8 +101,9 @@
 //    self.timeLabel.layer.borderWidth = 1.0;
     [self addSubview:self.timeLabel];
 
-    self.descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 240, 200, 30)];
+    self.descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 240, 250, 80)];
     self.descriptionLabel.text = @"Description";
+    self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
 //    self.descriptionLabel.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.descriptionLabel.layer.borderWidth = 1.0;
@@ -148,8 +138,8 @@
 - (void) loadScrollView {
     // scroll view for people going
     self.peopleGoingScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
-    self.peopleGoingScrollView.layer.borderWidth = 1.0;
-    self.peopleGoingScrollView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.peopleGoingScrollView.layer.borderWidth = 1.0;
+//    self.peopleGoingScrollView.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.peopleGoingScrollView];
 }
 
