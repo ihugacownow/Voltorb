@@ -11,18 +11,11 @@
 
 @interface IssueTrackerView()
 
-//event photo
-@property (nonatomic, strong) UIImageView *issueImageView;
-
 // labels
-@property (nonatomic, strong) UILabel *progressLabel;
 @property (nonatomic, strong) UILabel *discussionLabel;
-@property (nonatomic, strong) UILabel *issueNameLabel;
-@property (nonatomic, strong) UILabel *descriptionLabel;
-
+@property (nonatomic, strong) UILabel *scheduledEventLabel;
 
 // buttons
-@property (nonatomic, strong) UIButton *eventButton;
 @property (nonatomic, strong) UIButton *resolutionButton;
 
 @end
@@ -45,54 +38,73 @@
     self.issueImageView.frame = CGRectMake(170, 20, 120, 120);
     
     double scrollViewWidth = 265;
-    self.postsScrollView = [[UIScrollView alloc] initWithFrame: CGRectMake((self.bounds.size.width - scrollViewWidth) / 2, 180, scrollViewWidth, 200)];
-    self.postsScrollView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.postsScrollView.layer.borderWidth = 1.0;
-    [self addSubview:self.postsScrollView];
+    self.postsTableView.frame = CGRectMake((self.bounds.size.width - scrollViewWidth) / 2, 200, scrollViewWidth, 240);
+//    self.postsTableView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.postsTableView.layer.borderWidth = 1.0;
+    
+    double buttonWidth = 200;
+    self.proposeNewEventButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 450, buttonWidth, 30);
+    [self.proposeNewEventButton setTitle:@"propose solution" forState:UIControlStateNormal];
+    [self.proposeNewEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - load UI
 - (void) loadUI {
     [self loadBanner];
     [self loadDiscussionHeader];
-    
+    [self loadButton];
+    [self createEventLabels];
 }
 
 - (void) loadBanner {
     self.issueImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.issueImageView.image = [UIImage imageNamed:@"testImage.jpg"];
-    self.issueImageView.layer.borderWidth = 1;
-    self.issueImageView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.issueImageView.layer.borderWidth = 1;
+//    self.issueImageView.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.issueImageView];
     
-    self.issueNameLabel = [[UILabel alloc] initWithFrame: CGRectMake(30, 20, 100, 30)];
-    self.issueNameLabel.text = @"Issue name"; // get issue name from data base
-    [self addSubview:self.issueNameLabel];
-    
-    self.descriptionLabel = [[UILabel alloc] initWithFrame: CGRectMake(30, 50, 120, 90)];
-    NSString *description = @"This is a really really really really really really long description about an issue. Please discuss and discuss and see if you can help out. If you can't just talk a lot about it and hope more people get interested about it. Maybe they can help out.";
-   // NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc]initWithString: description];
-//    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-//    [style setLineSpacing: 40];
+    self.descriptionLabel = [[UILabel alloc] initWithFrame: CGRectMake(30, 20, 120, 120)];
+    NSString *description = @"Description.";
     self.descriptionLabel.numberOfLines = 0;
+    self.descriptionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
     self.descriptionLabel.text = description;
-    self.descriptionLabel.layer.borderWidth = 1;
-    self.descriptionLabel.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.descriptionLabel.layer.borderWidth = 1;
+//    self.descriptionLabel.layer.borderColor = [UIColor blackColor].CGColor;
     [self addSubview:self.descriptionLabel];
 }
 
 - (void) loadDiscussionHeader {
-    self.progressLabel = [[UILabel alloc] initWithFrame: CGRectMake(30, 150, 160, 20)];
-    self.progressLabel.text = @"Discussion on-going";
-    self.progressLabel.backgroundColor = [UIColor orangeColor];
-    self.progressLabel.layer.borderWidth = 1.0;
-    self.progressLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    [self addSubview:self.progressLabel];
-
-    self.resolutionButton = [[UIButton alloc] initWithFrame: CGRectMake(210, 150, 80, 20)];
-    [self.resolutionButton setTitle: @"Resolved" forState: UIControlStateNormal];
+    self.resolutionButton = [[UIButton alloc] initWithFrame: CGRectMake(190, 150, 100, 20)];
+    [self.resolutionButton setTitle: @"Unresolved" forState: UIControlStateNormal];
     [self.resolutionButton setBackgroundColor: [UIColor redColor]];
     [self addSubview:self.resolutionButton];
+
+    self.postsTableView = [[UITableView alloc] initWithFrame:CGRectZero];
+    [self addSubview:self.postsTableView];
+}
+
+- (void) createEventLabels {
+    self.scheduledEventLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 155, 200, 20)];
+    self.scheduledEventLabel.text = @"Next steps";
+    self.scheduledEventLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
+//    self.scheduledEventLabel.layer.borderWidth = 1.0;
+//    self.scheduledEventLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    [self addSubview:self.scheduledEventLabel];
+    
+    self.eventDetails = [[UILabel alloc] initWithFrame:CGRectMake(30, 165, 200, 30)];
+    self.eventDetails.text = @"Scheduled event details here!";
+    self.eventDetails.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+//    self.eventDetails.layer.borderWidth = 1.0;
+//    self.eventDetails.layer.borderColor = [UIColor blackColor].CGColor;
+    [self addSubview:self.eventDetails];
+}
+
+- (void) loadButton {
+    self.proposeNewEventButton = [[UIButton alloc] initWithFrame:CGRectZero];
+//    self.proposeNewEventButton.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.proposeNewEventButton.layer.borderWidth = 1.0;
+    [self addSubview:self.proposeNewEventButton];
 }
 
 /*

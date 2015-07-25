@@ -8,6 +8,7 @@
 
 #import "IssueTrackerViewController.h"
 #import "IssueTrackerView.h"
+#import <Parse/Parse.h>
 
 @interface IssueTrackerViewController ()
 
@@ -16,13 +17,24 @@
 @end
 
 @implementation IssueTrackerViewController
+{
+    NSArray *issueDiscussionThread;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.issueTrackerView = [[IssueTrackerView alloc] initWithFrame: CGRectZero];
     [self.view addSubview: self.issueTrackerView];
+    
+    [self.issueTrackerView.postsTableView setDelegate:self];
+    [self.issueTrackerView.postsTableView setDataSource:self];
+    
     // TODO: not hard code
-    [self loadPostsForIssueWithObjectID:@"A7kRuIglWL"];
+    [self retrieveEventDetailsWithObjectID:@"A7kRuIglWL"];
+    [self retrieveAssociatedEventsForThisIssueOfObjectID:@"A7kRuIglWL"];
+    
+    [self addSelectors];
     // Do any additional setup after loading the view.
 }
 
@@ -35,65 +47,84 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) loadPostsForIssueWithObjectID: (NSString *) objectID {
+#pragma mark - database queries
+- (void) retrieveEventDetailsWithObjectID:(NSString *) objectID {
+    PFQuery *query = [PFQuery queryWithClassName:@"Issue"];
+    [query whereKey:@"objectId" equalTo:objectID];
     
-    NSArray *posts = @[[NSDictionary dictionaryWithObjectsAndKeys:
-                        [UIImage imageNamed:@"verified.png"], @"userPic",
-                        @"Wai Wu", @"username",
-                        @"This is a description", @"description",
-                        nil],
-                       [NSDictionary dictionaryWithObjectsAndKeys:
-                        [UIImage imageNamed:@"testImage.png"], @"userPic",
-                        @"Jevon Yeoh", @"username",
-                        @"description is this", @"description",
-                        nil]];
-    
-    // initialize scroll view
-    self.issueTrackerView.postsScrollView.pagingEnabled = NO;
-
-    int xOffset = 30;
-    int yOffSet = 0;
-    int finalHeight = 0;
-    int buffer = 5;
-    // list posts
-//    for (int i = 0; i < 1; i++) {
-        UIImageView *currProfileImageView = [[UIImageView alloc] initWithFrame: CGRectMake(xOffset, yOffSet + 5, 20, 20)];
-        NSLog(@"added one picture");
-        currProfileImageView.image = [UIImage imageNamed: @"verified.png"];
-//        currProfileImageView.image = posts[i][@"userPic"];
-//        NSLog(@"%@", posts[i][@"username"]);
-        [self.issueTrackerView.postsScrollView addSubview: currProfileImageView];
+    NSArray *results = [query findObjects];
+    if ([results count]) {
+        PFObject *pfo = [results objectAtIndex:0];
+        self.issueTrackerView.descriptionLabel.text = pfo[@"description"];
+        issueDiscussionThread = pfo[@"discussionThread"];
         
-        UILabel *name = [[UILabel alloc] initWithFrame: CGRectMake(xOffset, yOffSet + 25, 40, 10)];
-        name.text = @"Ignatius";
-        [self.issueTrackerView.postsScrollView addSubview: name];
-        finalHeight += 40;
-        finalHeight += buffer;
-//    }
-    finalHeight -= buffer;
-    
-    // update the scroll view size
-    CGSize contentSize = CGSizeMake(self.issueTrackerView.postsScrollView.frame.size.width, finalHeight);
-    self.issueTrackerView.postsScrollView.contentSize = contentSize;
+    } else {
+        NSLog(@"error retrieving event details with ID %@", objectID);
+    }
+}
 
+- (void) retrieveAssociatedEventsForThisIssueOfObjectID:(NSString *) objectID {
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"issueObjectID" equalTo:objectID];
     
-//    UIImageView *currProfileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(xCoord, 0, profilePictureViewWidth, profilePictureViewWidth)];
-//    currProfileImageView.image = [UIImage imageNamed:@"testImage.jpg"];
-//    
-//    NSData *currData = [currObj[@"profilePicture"] getData];
-//    UIImage *pp = [UIImage imageWithData:currData];
-//    currProfileImageView.image = pp;
-//    [self.eventDetailsView.peopleGoingScrollView addSubview:currProfileImageView];
-//    
-//    finalWidth += profilePictureViewWidth;
-//    finalWidth += buffer;
+    NSArray *results = [query findObjects];
+    if ([results count]) {
+        PFObject *pfo = [results objectAtIndex:0];
+        self.issueTrackerView.eventDetails.text = pfo[@"eventName"];
+        // TODO: create gesture recognizer to transit to event listing
+        
+    } else {
+        self.issueTrackerView.eventDetails.text = @"No next steps planned.";
+    }
+}
+
+# pragma mark - populating table view (delegate)
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [issueDiscussionThread count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [issueDiscussionThread objectAtIndex:indexPath.row][1];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    
+    NSString *userObjectID = [issueDiscussionThread objectAtIndex:indexPath.row][0];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"objectId" equalTo:userObjectID];
+    NSArray *results = [query findObjects];
+    PFObject *pfo = [results objectAtIndex:0];
+    NSData *currData = [pfo[@"profilePhoto"] getData];
+    if (currData) {
+        UIImage *pp = [UIImage imageWithData:currData];
+        cell.imageView.image = pp;
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"verified.png"];
+    }
+    
+    return cell;
+}
+
+# pragma mark - add selectors
+- (void) addSelectors {
+    // selector for submit button
+    [self.issueTrackerView.proposeNewEventButton addTarget:self
+                                                    action:@selector(proposeNewEventButtonPressed:)
+                                          forControlEvents:UIControlEventTouchUpInside];
     
 }
 
-#pragma mark - database query
-
-- (void) databaseQuery {
-    
+# pragma mark - selectors
+- (IBAction )proposeNewEventButtonPressed:(id)sender {
+    NSLog(@"segue to create new event now!");
 }
 
 

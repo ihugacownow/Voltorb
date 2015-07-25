@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IssueTrackerViewController : UIViewController
+@interface IssueTrackerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

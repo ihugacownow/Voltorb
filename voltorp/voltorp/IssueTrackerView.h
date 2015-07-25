@@ -10,7 +10,17 @@
 
 @interface IssueTrackerView : UIView
 
-// scroll view
-@property (nonatomic, strong) UIScrollView *postsScrollView;
+// table view
+@property (nonatomic, strong) UITableView *postsTableView;
+
+// labels
+@property (nonatomic, strong) UILabel *descriptionLabel;
+@property (nonatomic, strong) UILabel *eventDetails;
+
+// issue photo
+@property (nonatomic, strong) UIImageView *issueImageView;
+
+// buttons
+@property (nonatomic, strong) UIButton *proposeNewEventButton;
 
 @end
