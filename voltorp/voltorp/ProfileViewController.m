@@ -20,6 +20,7 @@
 @implementation ProfileViewController
 {
     NSArray *tableData;
+    NSMutableArray *issueStatuses;
 }
 
 
@@ -89,12 +90,16 @@
     
     
     NSArray *pfo = [query findObjects];
+    NSMutableArray *descriptions = [[NSMutableArray alloc] init];
+    issueStatuses = [[NSMutableArray alloc] init];
     if ([pfo count]) {
         for (PFObject *obj in pfo) {
             NSLog(@"description is %@", [obj objectForKey:@"description"]);
-            NSLog(@"status is %@", [obj objectForKey:@"status"]);
+            [descriptions addObject:[obj objectForKey:@"description"]];
+            NSLog(@"status is %@", [obj objectForKey:@"issueStatus"]);
+            [issueStatuses addObject:[obj objectForKey:@"issueStatus"]];
         }
-        
+        tableData = descriptions;
     } else {
         NSLog(@"error in retrieving user issues");
     }
@@ -118,7 +123,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
+    // give background color to indicate status of issue
+    if ([[issueStatuses objectAtIndex:indexPath.row] isEqualToString:@"WIP"]) {
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:236/255.0 blue:139/255.0 alpha:1.0];
+    } else if ([[issueStatuses objectAtIndex:indexPath.row] isEqualToString:@"Completed"]) {
+        cell.backgroundColor = [UIColor colorWithRed:188/255.0 green:237/255.0 blue:145/255.0 alpha:1.0];
+    } else { // yet to respond
+        
+    }
+    
     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+
     return cell;
 }
 

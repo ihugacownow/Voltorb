@@ -55,9 +55,7 @@
 //    self.tabBarController.viewControllers = controllers;
     
     
-//    self.window.rootViewController = [[ProfileViewController alloc] init];
-    self.window.rootViewController = [[SignUpViewController alloc] init];
-//    self.window.rootViewController = [[IssueViewController alloc] init];
+    self.window.rootViewController = [[ProfileViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

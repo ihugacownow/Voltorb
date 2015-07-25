@@ -8,6 +8,7 @@
 
 #import "IssueViewController.h"
 #import "IssueView.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 #import <Parse/Parse.h>
 
 @interface IssueViewController ()
@@ -27,9 +28,9 @@
     
     [self.view addSubview:self.issueView];
     
-    
     // further set up of IssueView
-    [self addGestureRecognizers];    
+    [self addGestureRecognizers];
+    [self addSelectors];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,27 +61,127 @@
 }
 
 # pragma mark - selectors
-// TODO: waichoong - add picker here
-- (void) tapImageView: (id)sender {
-    //handle Tap...
-    NSLog(@"tapped image view to upload image");
-}
-
 - (IBAction) submitButtonPressed:(id)sender
 {
     NSLog(@"submit button pressed");
-    // 1. TODO: check if all fields are complete
-    
-    
-    // 2. update to database
+    // update to database
     [self uploadIssueToParse];
+}
+
+- (IBAction) tapImageView:(id)sender {
+    NSLog(@"tapped image view to upload image");
+    // check if photo settings are allowed
+    if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No access to photos"
+                                                            message:@"Please allow access to your photos or Camera in Settings to use this feature."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
+        [alertView show];
+    } else {
+        UIActionSheet *choosePhoto = [[UIActionSheet alloc] initWithTitle:@"How do you want to select a picture?"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"Cancel"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"Take Picture", @"Choose Picture", nil];
+        choosePhoto.tag = 20;
+        [choosePhoto showInView:self.view];
+    }
+}
+
+#pragma mark - ActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // handle multiple actionsheets
+    if (actionSheet.tag == 20) {
+        if (buttonIndex == 0) {
+            [self takePicture];
+        } else if (buttonIndex == 1) {
+            [self choosePicture];
+        }
+    }
+}
+
+#pragma mark - handle photo
+- (void)takePicture
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIAlertView *noCamera = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                           message:@"This device does not seem to have a camera."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Ok"
+                                                 otherButtonTitles:nil, nil];
+        [noCamera show];
+    } else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self presentViewController:picker
+                           animated:YES
+                         completion:nil];
+    }
+}
+
+- (void)choosePicture
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.issueView.imageView.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 # pragma mark - database queries
 - (void) uploadIssueToParse {
-    // TODO: upload to parse
-}
+    NSLog(@"uploading issue to parse");
+    PFObject *issueStore = [PFObject objectWithClassName:@"Issue"];
+    
+    NSString *details = self.issueView.detailsTextField.text;
+    issueStore[@"description"] = details;
 
+    // TODO: update location
+    NSString *location = self.issueView.incidentLocationTextField.text;
+    issueStore[@"locationTuple"] = [PFGeoPoint geoPointWithLatitude:40.0 longitude:-30.0];
+    issueStore[@"issueStatus"] = @"WIP";
+//    issueStore[@"createdBy"] = [PFUser currentUser].objectId; // TODO: need to change back
+    issueStore[@"createdBy"] = @"rghzVlOB8Z"; // TODO: need to change back
+    
+    NSLog(@"issue store is %@", issueStore);
+    
+    // store image
+    NSData* data = UIImageJPEGRepresentation(self.issueView.imageView.image, 0.5f);
+    PFFile *imageFile = [PFFile fileWithName:@"overwrite.jpg" data:data];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            [issueStore setObject:imageFile forKey:@"issuePhoto"];
+            [issueStore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"new issue created");
+                } else {
+                    NSLog(@"error in creating new issue");
+                }
+            }];
+        }
+    }];
+}
 
 /*
 #pragma mark - Navigation
