@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F1B6C2C7-DB7C-446B-9C22-092A72211C40</string>
+	<key>IDESourceControlProjectName</key>
+	<string>voltorp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5F076079EF59677A6DD31207959A13C2D4AA43EC</key>
+		<string>https://github.com/jevonyeoh/voltorp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>voltorp/voltorp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5F076079EF59677A6DD31207959A13C2D4AA43EC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jevonyeoh/voltorp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5F076079EF59677A6DD31207959A13C2D4AA43EC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5F076079EF59677A6DD31207959A13C2D4AA43EC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>voltorp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
