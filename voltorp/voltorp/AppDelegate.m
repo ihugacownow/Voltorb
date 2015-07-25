@@ -18,6 +18,7 @@
 #import "IssueTrackerViewController.h"
 #import "IssuesTabBarController.h"
 #import "EventCreationViewController.h"
+#import "ArchivedIssuesViewController.h"
 
 @interface AppDelegate ()
 
@@ -59,7 +60,6 @@
 //    self.tabBarController.viewControllers = controllers;
     
     self.window.rootViewController = [[IssueTrackerViewController alloc] init];
-    self.window.rootViewController = [[EventCreationViewController alloc] init];
     
 //    self.window.rootViewController = [[IssueViewController alloc] init];
 //    self.window.rootViewController = [[DiscoverViewController alloc] init];

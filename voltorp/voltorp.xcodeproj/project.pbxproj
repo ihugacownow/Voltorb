@@ -21,7 +21,8 @@
 		0954488D1B63CB9D001ECD22 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0954488C1B63CB9D001ECD22 /* Parse.framework */; };
 		095448941B640231001ECD22 /* IssueTrackerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448931B640231001ECD22 /* IssueTrackerView.m */; };
 		095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448961B640249001ECD22 /* IssueTrackerViewController.m */; };
-		0954489B1B6423B4001ECD22 /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
+		4C137F601B642CF900DD702A /* ArchivedIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C137F5F1B642CF900DD702A /* ArchivedIssuesViewController.m */; };
+		4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C137F621B642D0600DD702A /* ArchivedIssuesView.m */; };
 		4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81161B63C47A009DBC60 /* ProfileView.m */; };
 		4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81181B63C47A009DBC60 /* ProfileViewController.m */; };
 		4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811C1B63C490009DBC60 /* IssueView.m */; };
@@ -86,6 +87,10 @@
 		095448961B640249001ECD22 /* IssueTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueTrackerViewController.m; sourceTree = "<group>"; };
 		0A4C6EFD5AB00A06AF29EA89 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3149BAFA3A76FA4F0768548E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4C137F5E1B642CF900DD702A /* ArchivedIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivedIssuesViewController.h; sourceTree = "<group>"; };
+		4C137F5F1B642CF900DD702A /* ArchivedIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivedIssuesViewController.m; sourceTree = "<group>"; };
+		4C137F611B642D0600DD702A /* ArchivedIssuesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivedIssuesView.h; sourceTree = "<group>"; };
+		4C137F621B642D0600DD702A /* ArchivedIssuesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivedIssuesView.m; sourceTree = "<group>"; };
 		4CEC81151B63C47A009DBC60 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		4CEC81161B63C47A009DBC60 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		4CEC81171B63C47A009DBC60 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -395,6 +400,10 @@
 				4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */,
 				4E5C616B1B63EC1B00EC7D0A /* IssuesBaseViewController.h */,
 				4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */,
+				4C137F5E1B642CF900DD702A /* ArchivedIssuesViewController.h */,
+				4C137F5F1B642CF900DD702A /* ArchivedIssuesViewController.m */,
+				4C137F611B642D0600DD702A /* ArchivedIssuesView.h */,
+				4C137F621B642D0600DD702A /* ArchivedIssuesView.m */,
 			);
 			name = "Archived Issues";
 			sourceTree = "<group>";
@@ -537,7 +546,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0954489B1B6423B4001ECD22 /* SignUpView.m in Sources */,
 				4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */,
 				4CEC813F1B641608009DBC60 /* EventCreationView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
@@ -549,7 +557,7 @@
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
 				4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */,
 				4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */,
-				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
+				4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */,
 				4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
@@ -559,6 +567,7 @@
 				4E5C614C1B63777C00EC7D0A /* BaseViewController.m in Sources */,
 				095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */,
 				4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */,
+				4C137F601B642CF900DD702A /* ArchivedIssuesViewController.m in Sources */,
 				4E5C61141B63521A00EC7D0A /* main.m in Sources */,
 				4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */,
 				4CEC81201B63C490009DBC60 /* IssueViewController.m in Sources */,
