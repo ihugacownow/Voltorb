@@ -19,7 +19,6 @@
 @property (strong, nonatomic) UITableView *listView;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
-@property (strong, nonatomic) NSMutableArray *nearbyIssues;
 @property (strong, nonatomic) AGSGraphicsLayer *myGraphicsLayer;
 @property (strong, nonatomic) AGSTiledMapServiceLayer *tiledLayer;
 
@@ -74,14 +73,8 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
-    
-    self.nearbyIssues = [NSMutableArray array];
-    [self.nearbyIssues addObject:@"1"];
-    [self.nearbyIssues addObject:@"2"];
 
-    
-//    [self.nearbyIssues addObject:(1.381905,103.844818)];
-    
+
     
     
     
@@ -165,6 +158,39 @@
     
 }
 
+- (void) addIssueAnnotationFrom:(NSMutableArray*) issues {
+    for (PFObject *issue in issues) {
+           // create a AGSPoint from the GPS coordinates
+    AGSPoint* issuePoint = [[AGSPoint alloc] initWithX:((PFGeoPoint*) issue[@"location"]).longitude
+                                                   y:((PFGeoPoint *) issue[@"location"]).latitude
+                                    spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+    AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
+    
+    // convert GPS WGS-84 coordinates to the map's spatial reference
+    // (assuming self.mapView is your AGSMapView for your map)
+    AGSPoint* mapPoint = (AGSPoint*) [engine projectGeometry:issuePoint toSpatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
+  
+    
+    //create a marker symbol to be used by our Graphic
+    AGSSimpleMarkerSymbol *myMarkerSymbol =
+    [AGSSimpleMarkerSymbol simpleMarkerSymbol];
+    myMarkerSymbol.color = [UIColor blueColor];
+    
+    
+    //Create the Graphic, using the symbol and
+    //geometry created earlier
+    AGSGraphic* mapIssueGrpahic=
+    [AGSGraphic graphicWithGeometry:mapPoint
+                             symbol:myMarkerSymbol
+                         attributes:nil];
+    
+    
+    //Add the graphic to the Graphics layer
+    [self.myGraphicsLayer addGraphic:mapIssueGrpahic];
+    }
+}
+
+
 
 
 -(BOOL)callout:(AGSCallout*)callout willShowForFeature:(id<AGSFeature>)feature layer:(AGSLayer<AGSHitTestable>*)layer mapPoint:(AGSPoint*)mapPoint{
@@ -203,49 +229,65 @@
 
 - (void)respondToEnvChange: (NSNotification*) notification {
     
-    NSString* theString = [[NSString alloc] initWithFormat:@"xmin = %f,ymin =%f,xmax = %f,ymax = %f",
-                           
-                           self.mapView.visibleAreaEnvelope.xmin,
-                           self.mapView.visibleAreaEnvelope.ymin,
-                           self.mapView.visibleAreaEnvelope.xmax,
-                           self.mapView.visibleAreaEnvelope.ymax];
     
-    NSLog(@"The visible extent = %@", theString);
-    
-    
-    
-    
-}
-
-- (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features {
-    
-    NSLog(@"%@", mappoint);
-    self.mapView.callout.showCalloutForLocationDisplay;
     AGSEnvelope *envelope = self.mapView.visibleAreaEnvelope;
     AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
-
+    
     
     AGSPoint* upperPoint = [[AGSPoint alloc] initWithX:envelope.xmax
-                                                      y:envelope.ymax
-                                       spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
+                                                     y:envelope.ymax
+                                      spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
     AGSPoint *upperPointConverted = (AGSPoint*) [engine projectGeometry:upperPoint
                                                      toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
-
-
+    
+    
     AGSPoint* lowerPoint = [[AGSPoint alloc] initWithX:envelope.xmin
                                                      y:envelope.ymin
                                       spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
-    AGSPoint* lowerPointUpdated = (AGSPoint*)[engine projectGeometry:lowerPoint
-                                       toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
-
-
-}
-
-
-
-- (void)mapView:(AGSMapView *)mapView didMoveTapAndHoldAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features {
+    AGSPoint* lowerPointConverted = (AGSPoint*)[engine projectGeometry:lowerPoint
+                                                    toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
+    
+    PFGeoPoint *swBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:lowerPointConverted.x];
+    PFGeoPoint *neBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:upperPointConverted.y longitude:upperPointConverted.x];
+    NSMutableArray *issues = [self retrieveIssuesInBoundaries:swBound withPoint:neBound];
+    
+    [self addIssueAnnotationFrom:issues];
+    
+    
+    
     
 }
+
+//- (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features {
+//    
+//    AGSEnvelope *envelope = self.mapView.visibleAreaEnvelope;
+//    AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
+//
+//    
+//    AGSPoint* upperPoint = [[AGSPoint alloc] initWithX:envelope.xmax
+//                                                      y:envelope.ymax
+//                                       spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
+//    AGSPoint *upperPointConverted = (AGSPoint*) [engine projectGeometry:upperPoint
+//                                                     toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
+//
+//
+//    AGSPoint* lowerPoint = [[AGSPoint alloc] initWithX:envelope.xmin
+//                                                     y:envelope.ymin
+//                                      spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
+//    AGSPoint* lowerPointConverted = (AGSPoint*)[engine projectGeometry:lowerPoint
+//                                       toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
+//
+//    PFGeoPoint *swBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:lowerPointConverted.x];
+//    PFGeoPoint *neBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:upperPointConverted.y longitude:upperPointConverted.x];
+//    NSMutableArray *issues = [self retrieveIssuesInBoundaries:swBound withPoint:neBound];
+//    
+//    [self addIssueAnnotationFrom:issues];
+//    
+//    
+//}
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -288,11 +330,40 @@
             
         }
         
+        return [pfo mutableCopy];
+        
     } else {
         NSLog(@"error in retrieving user issues");
     }
     
+    
     return [[NSMutableArray alloc] init];
+;
+}
+
+- (NSMutableArray *) retrieveIssuesInBoundaries:(PFGeoPoint *)swBound withPoint:(PFGeoPoint *)neBound {
+    NSLog(@"retrieving issues within boundaries");
+    PFQuery *query = [PFQuery queryWithClassName:
+                      @"Issue"];
+    [query whereKey: @"location" withinGeoBoxFromSouthwest:swBound toNortheast:neBound];
+    
+    NSArray *pfo = [query findObjects];
+    if ([pfo count]) {
+        /*for (PFObject *obj in pfo) {
+         NSLog(@"pf object is %@", obj);
+         NSLog(@"current issue description is %@", obj[@"description"]);
+         NSLog(@"current issue location is %@", obj[@"locationTuple"]);
+         
+         }*/
+        return [pfo mutableCopy];
+        
+    } else {
+        NSLog(@"error in retrieving user issues");
+    }
+    
+    
+    return [[NSMutableArray alloc] init];
+    ;
 }
 
 @end
