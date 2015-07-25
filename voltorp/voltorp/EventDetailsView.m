@@ -11,7 +11,6 @@
 @interface EventDetailsView ()
 
 // image view
-@property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, strong) UIImageView *verifiedEventImageView;
 
 // labels
@@ -71,7 +70,6 @@
 
 - (void) loadImageViews {
     self.coverImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    self.coverImageView.image = [UIImage imageNamed:@"testImage.jpg"];
     [self addSubview:self.coverImageView];
 
     self.verifiedEventImageView = [[UIImageView alloc] initWithFrame:CGRectZero];

@@ -28,6 +28,7 @@
     self.eventDetailsView = [[EventDetailsView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.eventDetailsView];
     
+    // TODO: need to remove this hard coded line
     NSMutableDictionary *test = [self retrieveEventWithObjectID:@"HrYz7LiPAo"];
 }
 
@@ -59,6 +60,11 @@
 
         NSLog(@"people going are %@", currentEventDetailsPFO[@"peopleGoing"]);
         [self populateScrollView:currentEventDetailsPFO[@"peopleGoing"]];
+        
+        NSData *currData = [currentEventDetailsPFO[@"eventPhoto"] getData];
+        UIImage *pp = [UIImage imageWithData:currData];
+        self.eventDetailsView.coverImageView.image = pp;
+        
     } else {
         NSLog(@"error retrieving events from query");
     }

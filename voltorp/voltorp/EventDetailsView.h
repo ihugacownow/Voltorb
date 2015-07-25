@@ -23,5 +23,8 @@
 @property (nonatomic, strong) UIButton *editEventButton;
 @property (nonatomic, strong) UIButton *signUpForEventButton;
 
+// image view
+@property (nonatomic, strong) UIImageView *coverImageView;
+
 
 @end
