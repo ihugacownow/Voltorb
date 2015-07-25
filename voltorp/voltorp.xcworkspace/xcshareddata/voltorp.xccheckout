@@ -10,6 +10,8 @@
 	<string>voltorp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>433560A5C72445D9413204AA970E605294189122</key>
+		<string>github.com:ihugacownow/Voltorb.git</string>
 		<key>5F076079EF59677A6DD31207959A13C2D4AA43EC</key>
 		<string>https://github.com/jevonyeoh/voltorp.git</string>
 	</dict>
@@ -17,17 +19,27 @@
 	<string>voltorp/voltorp.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5F076079EF59677A6DD31207959A13C2D4AA43EC</key>
+		<key>433560A5C72445D9413204AA970E605294189122</key>
 		<string>../..</string>
+		<key>5F076079EF59677A6DD31207959A13C2D4AA43EC</key>
+		<string>../../../voltorp</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jevonyeoh/voltorp.git</string>
+	<string>github.com:ihugacownow/Voltorb.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5F076079EF59677A6DD31207959A13C2D4AA43EC</string>
+	<string>433560A5C72445D9413204AA970E605294189122</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>433560A5C72445D9413204AA970E605294189122</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Voltorb</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
