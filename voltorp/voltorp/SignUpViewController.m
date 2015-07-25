@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     self.signUpView = [[SignUpView alloc] initWithFrame: CGRectZero];
     [self.view addSubview: self.signUpView];
-    [self.signUpView.signUpButton addTarget:self action:@selector(signUp) forControlEvents: UIControlEventTouchUpInside];
+    [self.signUpView.signUpButton addTarget:self action:@selector(goToDiscoverVC) forControlEvents: UIControlEventTouchUpInside];
         [self addGestureRecognizers];
 }
 

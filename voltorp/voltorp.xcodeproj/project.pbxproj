@@ -52,7 +52,6 @@
 		4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */; };
 		4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */; };
 		4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */; };
-		4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -547,7 +546,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */,
-				4CEC813F1B641608009DBC60 /* EventCreationView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
