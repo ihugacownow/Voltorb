@@ -54,7 +54,7 @@
 //    self.tabBarController.viewControllers = controllers;
     
     
-    self.window.rootViewController = [[ProfileViewController alloc] init];
+    self.window.rootViewController = [[DiscoverViewController alloc] init];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
