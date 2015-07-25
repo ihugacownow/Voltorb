@@ -33,6 +33,7 @@
 		4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61561B637B8700EC7D0A /* SignUpViewController.m */; };
 		4E5C61591B63A17F00EC7D0A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C61581B63A17F00EC7D0A /* Social.framework */; };
 		4E5C615B1B63A18800EC7D0A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C615A1B63A18800EC7D0A /* Accounts.framework */; };
+		4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		4E5C61561B637B8700EC7D0A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		4E5C61581B63A17F00EC7D0A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4E5C615A1B63A18800EC7D0A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewTest.xib; sourceTree = "<group>"; };
 		515CC45633EAB096220F37B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				4E5C614D1B63794100EC7D0A /* Default-568h@2x.png */,
-				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
 				095448721B63547C001ECD22 /* Frameworks */,
 				4E5C61101B63521A00EC7D0A /* voltorp */,
 				4E5C612A1B63521A00EC7D0A /* voltorpTests */,
@@ -180,6 +181,7 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
 				4E5C614A1B63777C00EC7D0A /* BaseViewController.h */,
 				4E5C614B1B63777C00EC7D0A /* BaseViewController.m */,
 				4E5C61431B63637D00EC7D0A /* Chat */,
@@ -229,6 +231,7 @@
 				4E5C61381B63602200EC7D0A /* RootViewController.m */,
 			);
 			name = "Main View Controller";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4E5C613D1B63631500EC7D0A /* Profile */ = {
@@ -252,6 +255,7 @@
 			children = (
 				4E5C61521B637B7300EC7D0A /* DiscoverViewController.h */,
 				4E5C61531B637B7300EC7D0A /* DiscoverViewController.m */,
+				4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */,
 			);
 			name = "Discover ";
 			sourceTree = "<group>";
@@ -365,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */,
 				4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */,
 				4E5C614E1B63794100EC7D0A /* Default-568h@2x.png in Resources */,
 			);
