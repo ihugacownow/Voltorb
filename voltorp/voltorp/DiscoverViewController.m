@@ -9,10 +9,12 @@
 #import "DiscoverViewController.h"
 #import <ArcGIS/ArcGIS.h>
 
-@interface DiscoverViewController ()
+@interface DiscoverViewController () <AGSMapViewLayerDelegate>
+
+
 
 @property (strong, nonatomic) AGSMapView *mapView;
-@property (strong, nonatomic) UIView *listView;
+@property (strong, nonatomic) UITableView *listView;
 
 @end
 
@@ -25,11 +27,25 @@
     
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://e1.onemap.sg/arcgis/rest/services/SM128/MapServer"];
+    
+    // Map View
+    self.mapView = [[AGSMapView alloc] initWithFrame:CGRectZero];
     AGSTiledMapServiceLayer *tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
     [self.mapView addMapLayer:tiledLayer withName:@"Basemap Tiled Layer"];
+    self.mapView.layerDelegate = self;
     [self.view addSubview:self.mapView];
     
+    self.listView = [[UITableView alloc] initWithFrame:CGRectZero];
+    
+    
 }
+
+- (void)mapViewDidLoad:(AGSMapView *) mapView {
+    //do something now that the map is loaded
+    //for example, show the current location on the map
+    [mapView.locationDisplay startDataSource];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,7 +54,9 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(100.00, 100.00, 500.00, 500.00);
+    self.mapView.frame = CGRectMake(0.00, 0.00, 300.00, 200.00);
+    self.mapView.center = self.view.center;
+    
 }
 /*
 #pragma mark - Navigation
