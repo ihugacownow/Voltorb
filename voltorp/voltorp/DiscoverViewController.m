@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 @import CoreLocation;
 
-@interface DiscoverViewController () <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSCalloutDelegate, CLLocationManagerDelegate>
+@interface DiscoverViewController () <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSCalloutDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 
@@ -21,6 +21,8 @@
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) AGSGraphicsLayer *myGraphicsLayer;
 @property (strong, nonatomic) AGSTiledMapServiceLayer *tiledLayer;
+@property (strong, nonatomic) NSMutableArray *allIssuesInView;
+@property (strong, nonatomic) NSMutableArray *allIssues;
 
 //@property (strong, nonatomic)
 
@@ -74,8 +76,16 @@
     }
     [self.locationManager startUpdatingLocation];
 
-
     
+    self.listView = [[UITableView alloc] initWithFrame:CGRectZero];
+    
+    [self.view addSubview:self.listView];
+    
+    self.allIssuesInView = [NSMutableArray new];
+    self.allIssuesInView = [self retrieveAllIssues];
+    
+    self.allIssues = [NSMutableArray new];
+    self.allIssues = [self retrieveAllIssues];
     
     
 }
@@ -150,13 +160,42 @@
     [self.myGraphicsLayer addGraphic:myGraphic];
     [self.myGraphicsLayer addGraphic:myGraphicTwo];
     
-   
-    
- 
-    
-    
-    
+
 }
+
+- (void) addInViewIssueAnnotationFromAllIssues {
+    for (PFObject *issue in self.allIssuesInView) {
+
+        AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
+
+        // create a AGSPoint from the GPS coordinates
+        AGSPoint* issuePoint = [[AGSPoint alloc] initWithX:((PFGeoPoint*) issue[@"location"]).longitude
+                                                         y:((PFGeoPoint *) issue[@"location"]).latitude
+                                          spatialReference:[AGSSpatialReference wgs84SpatialReference]];
+        
+        // convert GPS WGS-84 coordinates to the map's spatial reference
+        // (assuming self.mapView is your AGSMapView for your map)
+        AGSPoint* mapPoint = (AGSPoint*) [engine projectGeometry:issuePoint toSpatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
+        
+        //create a marker symbol to be used by our Graphic
+        AGSSimpleMarkerSymbol *myMarkerSymbol =
+        [AGSSimpleMarkerSymbol simpleMarkerSymbol];
+        myMarkerSymbol.color = [UIColor blueColor];
+        
+        //Create the Graphic, using the symbol and
+        //geometry created earlier
+        AGSGraphic* mapIssueGrpahic=
+        [AGSGraphic graphicWithGeometry:mapPoint
+                                 symbol:myMarkerSymbol
+                             attributes:nil];
+        
+        
+        //Add the graphic to the Graphics layer
+        [self.myGraphicsLayer addGraphic:mapIssueGrpahic];
+    }
+
+}
+
 
 - (void) addIssueAnnotationFrom:(NSMutableArray*) issues {
     for (PFObject *issue in issues) {
@@ -190,25 +229,6 @@
     }
 }
 
-
-
-
--(BOOL)callout:(AGSCallout*)callout willShowForFeature:(id<AGSFeature>)feature layer:(AGSLayer<AGSHitTestable>*)layer mapPoint:(AGSPoint*)mapPoint{
-    //Specify the callout's contents
-    self.mapView.callout.title = (NSString*)[feature attributeForKey:@"Name"];
-    self.mapView.callout.detail =(NSString*)[feature attributeForKey:@"Address"];
-//    mapView.callout.image = [UIImage imageNamed:@"<my_image.png>"];
-    return YES;
-}
-
-
-//- (BOOL)callout:(AGSCallout *)callout willShowForLocationDisplay:(AGSLocationDisplay *)locationDisplay {
-//    
-//}
-
-//- (void)setMapViewCalloutAppearance() {
-//    self.mapView.callout
-//}
 
 - (void)mapViewDidLoad:(AGSMapView *) mapView {
     //do something now that the map is loaded
@@ -248,44 +268,26 @@
                                                     toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
     
     PFGeoPoint *swBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:lowerPointConverted.x];
+    
     PFGeoPoint *neBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:upperPointConverted.y longitude:upperPointConverted.x];
+    
+//    PFGeoPoint *seBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:upperPointConverted.x];
+    
+//    PFGeoPoint *seBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:upperPointConverted.x];
+
+    
+
+    
     NSMutableArray *issues = [self retrieveIssuesInBoundaries:swBound withPoint:neBound];
     
     [self addIssueAnnotationFrom:issues];
+    
+    [self.listView reloadData];
     
     
     
     
 }
-
-//- (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features {
-//    
-//    AGSEnvelope *envelope = self.mapView.visibleAreaEnvelope;
-//    AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
-//
-//    
-//    AGSPoint* upperPoint = [[AGSPoint alloc] initWithX:envelope.xmax
-//                                                      y:envelope.ymax
-//                                       spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
-//    AGSPoint *upperPointConverted = (AGSPoint*) [engine projectGeometry:upperPoint
-//                                                     toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
-//
-//
-//    AGSPoint* lowerPoint = [[AGSPoint alloc] initWithX:envelope.xmin
-//                                                     y:envelope.ymin
-//                                      spatialReference:[AGSSpatialReference spatialReferenceWithWKID:3414 WKT:@"SVY21"]];
-//    AGSPoint* lowerPointConverted = (AGSPoint*)[engine projectGeometry:lowerPoint
-//                                       toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
-//
-//    PFGeoPoint *swBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:lowerPointConverted.y longitude:lowerPointConverted.x];
-//    PFGeoPoint *neBound = (PFGeoPoint *) [PFGeoPoint geoPointWithLatitude:upperPointConverted.y longitude:upperPointConverted.x];
-//    NSMutableArray *issues = [self retrieveIssuesInBoundaries:swBound withPoint:neBound];
-//    
-//    [self addIssueAnnotationFrom:issues];
-//    
-//    
-//}
-
 
 
 
@@ -297,8 +299,48 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(0.00, 0.00, 700.00, 400.00);
-    self.mapView.center = self.view.center;
+    self.mapView.frame = CGRectMake(0.00, 0.00, 300.00, 400.00);
+    self.listView.frame = CGRectMake(0.00, 450.00, 300.00, 200.00);
+    self.listView.dataSource = self;
+    self.listView.delegate = self;
+    
+}
+
+#pragma mark TableView datasource 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.allIssuesInView count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+
+    cell.textLabel.text = [self.allIssuesInView objectAtIndex:indexPath.row][@"description"];
+    cell.textLabel.textColor = [UIColor blackColor];
+    
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *passedUser = [self.allIssuesInView objectAtIndex:indexPath.row];
+    [self goToSpecificIssueVC:passedUser];
+    
+    UIViewController *vc = [[UIViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+  
+}
+
+-(void)goToSpecificIssueVC:(PFObject *)user {
     
 }
 
@@ -341,6 +383,15 @@
 ;
 }
 
+- (NSMutableArray *)getIssuesWithin:(NSMutableArray *)IssuesArray inbetween: (AGSPoint *)swBound and:(AGSPoint *)neBound  {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.data.squareFootage.intValue >= %d", [filterSquareFootage intValue]];
+    return
+     
+ }
+
+
+
 - (NSMutableArray *) retrieveIssuesInBoundaries:(PFGeoPoint *)swBound withPoint:(PFGeoPoint *)neBound {
     NSLog(@"retrieving issues within boundaries");
     PFQuery *query = [PFQuery queryWithClassName:
@@ -363,7 +414,7 @@
     
     
     return [[NSMutableArray alloc] init];
-    ;
+    
 }
 
 @end

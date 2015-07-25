@@ -32,7 +32,6 @@
 		4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81331B63EF61009DBC60 /* IssueListingViewController.m */; };
 		4CEC81361B63FDAA009DBC60 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC81351B63FDAA009DBC60 /* testImage.jpg */; };
 		4CEC813B1B64022A009DBC60 /* verified.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC813A1B64022A009DBC60 /* verified.png */; };
-		4CEC813F1B641608009DBC60 /* EventCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC813E1B641608009DBC60 /* EventCreationView.m */; };
 		4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81411B641611009DBC60 /* EventCreationViewController.m */; };
 		4CEC81441B641C59009DBC60 /* editImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC81431B641C59009DBC60 /* editImage.png */; };
 		4E5C61141B63521A00EC7D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61131B63521A00EC7D0A /* main.m */; };
@@ -52,6 +51,8 @@
 		4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */; };
 		4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */; };
 		4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */; };
+		4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
+		4E5C61701B643E5200EC7D0A /* EventCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC813E1B641608009DBC60 /* EventCreationView.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -545,7 +546,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E5C616E1B6423F200EC7D0A /* SignUpView.m in Sources */,
+				4E5C61701B643E5200EC7D0A /* EventCreationView.m in Sources */,
+				4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
@@ -629,7 +631,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -666,7 +668,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
