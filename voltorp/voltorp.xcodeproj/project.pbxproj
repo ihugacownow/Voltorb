@@ -20,6 +20,8 @@
 		0954488B1B63CB93001ECD22 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0954488A1B63CB93001ECD22 /* Bolts.framework */; };
 		0954488D1B63CB9D001ECD22 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0954488C1B63CB9D001ECD22 /* Parse.framework */; };
 		095448901B63CBDE001ECD22 /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
+		095448941B640231001ECD22 /* IssueTrackerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448931B640231001ECD22 /* IssueTrackerView.m */; };
+		095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448961B640249001ECD22 /* IssueTrackerViewController.m */; };
 		4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81161B63C47A009DBC60 /* ProfileView.m */; };
 		4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81181B63C47A009DBC60 /* ProfileViewController.m */; };
 		4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811C1B63C490009DBC60 /* IssueView.m */; };
@@ -67,6 +69,10 @@
 		0954488C1B63CB9D001ECD22 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0954488E1B63CBDE001ECD22 /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
 		0954488F1B63CBDE001ECD22 /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
+		095448921B640231001ECD22 /* IssueTrackerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueTrackerView.h; sourceTree = "<group>"; };
+		095448931B640231001ECD22 /* IssueTrackerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueTrackerView.m; sourceTree = "<group>"; };
+		095448951B640249001ECD22 /* IssueTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueTrackerViewController.h; sourceTree = "<group>"; };
+		095448961B640249001ECD22 /* IssueTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueTrackerViewController.m; sourceTree = "<group>"; };
 		0A4C6EFD5AB00A06AF29EA89 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3149BAFA3A76FA4F0768548E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CEC81151B63C47A009DBC60 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
@@ -163,6 +169,17 @@
 			path = voltorp;
 			sourceTree = "<group>";
 		};
+		095448911B640206001ECD22 /* Issue Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				095448921B640231001ECD22 /* IssueTrackerView.h */,
+				095448931B640231001ECD22 /* IssueTrackerView.m */,
+				095448951B640249001ECD22 /* IssueTrackerViewController.h */,
+				095448961B640249001ECD22 /* IssueTrackerViewController.m */,
+			);
+			name = "Issue Tracking";
+			sourceTree = "<group>";
+		};
 		411D2E53875BF1535272CE34 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +231,7 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				095448911B640206001ECD22 /* Issue Tracking */,
 				4CEC81211B63D026009DBC60 /* Helpers */,
 				4CEC81141B63C468009DBC60 /* Issue Creation */,
 				4E5C613A1B63603E00EC7D0A /* Main View Controller */,
@@ -470,9 +488,11 @@
 				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
 				4E5C61461B6368E100EC7D0A /* ChatViewController.m in Sources */,
+				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
 				4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */,
 				4E5C614C1B63777C00EC7D0A /* BaseViewController.m in Sources */,
+				095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */,
 				4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */,
 				4E5C61511B637B6600EC7D0A /* CheckInViewController.m in Sources */,
 				4E5C61141B63521A00EC7D0A /* main.m in Sources */,
