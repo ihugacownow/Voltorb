@@ -56,14 +56,12 @@
     // Assign new frame to your view
     self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y - 200);
     
-//    [self.view setFrame:CGRectMake(0,-110,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
     
 }
 
 -(void)keyboardDidHide:(NSNotification *)notification
 {
     self.view.center = self.originalCenter;
-//    [self.view setFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
 }
 /*
 #pragma mark - Navigation

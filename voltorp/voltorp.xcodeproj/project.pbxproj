@@ -44,6 +44,10 @@
 		4E5C61591B63A17F00EC7D0A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C61581B63A17F00EC7D0A /* Social.framework */; };
 		4E5C615B1B63A18800EC7D0A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C615A1B63A18800EC7D0A /* Accounts.framework */; };
 		4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */; };
+		4E5C61641B63E58800EC7D0A /* ArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61631B63E58800EC7D0A /* ArchiveViewController.m */; };
+		4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */; };
+		4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */; };
+		4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +121,14 @@
 		4E5C61581B63A17F00EC7D0A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4E5C615A1B63A18800EC7D0A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewTest.xib; sourceTree = "<group>"; };
+		4E5C61621B63E58800EC7D0A /* ArchiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveViewController.h; sourceTree = "<group>"; };
+		4E5C61631B63E58800EC7D0A /* ArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveViewController.m; sourceTree = "<group>"; };
+		4E5C61651B63E5DB00EC7D0A /* IssuesTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesTabBarController.h; sourceTree = "<group>"; };
+		4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesTabBarController.m; sourceTree = "<group>"; };
+		4E5C61681B63E72200EC7D0A /* CurrentIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentIssuesViewController.h; sourceTree = "<group>"; };
+		4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentIssuesViewController.m; sourceTree = "<group>"; };
+		4E5C616B1B63EC1B00EC7D0A /* IssuesBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesBaseViewController.h; sourceTree = "<group>"; };
+		4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesBaseViewController.m; sourceTree = "<group>"; };
 		515CC45633EAB096220F37B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -252,6 +264,7 @@
 				095448911B640206001ECD22 /* Issue Tracking */,
 				4CEC813A1B64022A009DBC60 /* verified.png */,
 				4CEC81351B63FDAA009DBC60 /* testImage.jpg */,
+				4E5C61611B63E56700EC7D0A /* Archived Issues */,
 				4CEC81211B63D026009DBC60 /* Helpers */,
 				4CEC812E1B63EF43009DBC60 /* Issue Listing */,
 				4CEC81141B63C468009DBC60 /* Issue Creation */,
@@ -347,6 +360,39 @@
 				4CEC812C1B63EEA0009DBC60 /* EventDetailsView.m */,
 			);
 			name = "Event Details";
+			sourceTree = "<group>";
+		};
+		4E5C61421B63637200EC7D0A /* Check In */ = {
+			isa = PBXGroup;
+			children = (
+				4E5C614F1B637B6600EC7D0A /* CheckInViewController.h */,
+				4E5C61501B637B6600EC7D0A /* CheckInViewController.m */,
+			);
+			name = "Check In";
+			sourceTree = "<group>";
+		};
+		4E5C61431B63637D00EC7D0A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				4E5C61441B6368E100EC7D0A /* ChatViewController.h */,
+				4E5C61451B6368E100EC7D0A /* ChatViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		4E5C61611B63E56700EC7D0A /* Archived Issues */ = {
+			isa = PBXGroup;
+			children = (
+				4E5C61621B63E58800EC7D0A /* ArchiveViewController.h */,
+				4E5C61631B63E58800EC7D0A /* ArchiveViewController.m */,
+				4E5C61681B63E72200EC7D0A /* CurrentIssuesViewController.h */,
+				4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */,
+				4E5C61651B63E5DB00EC7D0A /* IssuesTabBarController.h */,
+				4E5C61661B63E5DB00EC7D0A /* IssuesTabBarController.m */,
+				4E5C616B1B63EC1B00EC7D0A /* IssuesBaseViewController.h */,
+				4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */,
+			);
+			name = "Archived Issues";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,10 +535,12 @@
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
+				4E5C61641B63E58800EC7D0A /* ArchiveViewController.m in Sources */,
 				4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */,
 				4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */,
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
-				095448901B63CBDE001ECD22 /* SignUpView.m in Sources */,
+				4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */,
+				4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
@@ -502,6 +550,7 @@
 				095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */,
 				4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */,
 				4E5C61141B63521A00EC7D0A /* main.m in Sources */,
+				4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */,
 				4CEC81201B63C490009DBC60 /* IssueViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

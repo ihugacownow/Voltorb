@@ -15,7 +15,11 @@
 #import "ProfileViewController.h"
 #import "IssueViewController.h"
 #import "EventDetailsViewController.h"
+<<<<<<< HEAD
 #import "IssueTrackerViewController.h"
+=======
+#import "IssuesTabBarController.h"
+>>>>>>> 955cc5edbd23734d1f608289958a0ef5287b0731
 
 
 @interface AppDelegate ()
@@ -53,7 +57,6 @@
 //    }
     
 //    self.tabBarController.viewControllers = controllers;
-    
     
     self.window.rootViewController = [[IssueTrackerViewController alloc] init];
     
