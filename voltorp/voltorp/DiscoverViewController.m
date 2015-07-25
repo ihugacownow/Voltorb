@@ -57,7 +57,10 @@
     [self.locationManager startUpdatingLocation];
     
     self.nearbyIssues = [NSMutableArray array];
-    [self.nearbyIssues addObject:(1.381905,103.844818)];
+    [self.nearbyIssues addObject:@"1"];
+    [self.nearbyIssues addObject:@"2"];
+
+//    [self.nearbyIssues addObject:(1.381905,103.844818)];
     
     
     
@@ -100,19 +103,18 @@
 #pragma mark - Database calls
 
 
-- (NSMutableArray *) retrieveIssuesByUser:(NSString *) userObjectID {
-    NSLog(@"retrieving issues posted by user %@", userObjectID);
-    
+- (NSMutableArray *) retrieveAllIssues{
+    NSLog(@"retrieving all issues");
     PFQuery *query = [PFQuery queryWithClassName:
                       @"Issue"];
-    [query whereKey:@"createdBy" equalTo:userObjectID];
-    
-    
+
     NSArray *pfo = [query findObjects];
     if ([pfo count]) {
         for (PFObject *obj in pfo) {
-            NSLog(@"description is %@", [obj objectForKey:@"description"]);
-            NSLog(@"status is %@", [obj objectForKey:@"status"]);
+            NSLog(@"pf object is %@", obj);
+            NSLog(@"current issue description is %@", obj[@"description"]);
+            NSLog(@"current issue location is %@", obj[@"locationTuple"]);
+            
         }
         
     } else {

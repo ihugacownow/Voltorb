@@ -22,7 +22,11 @@
     [super viewDidLoad];
     
     self.issueView = [[IssueView alloc] initWithFrame:CGRectZero];
+    self.issueView.detailsTextField.delegate = self;
+    self.issueView.incidentLocationTextField.delegate = self; 
+    
     [self.view addSubview:self.issueView];
+    
     
     // further set up of IssueView
     [self addGestureRecognizers];    

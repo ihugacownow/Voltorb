@@ -10,6 +10,7 @@
 
 @interface BaseViewController ()
 
+@property (nonatomic) CGPoint originalCenter;
 
 
 @end
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  
+    self.originalCenter = CGPointMake(self.view.center.x, self.view.center.y);
 
 }
 
@@ -28,6 +29,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    return YES;
+}
+
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [self.view endEditing:YES];
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    // Assign new frame to your view
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y - 200);
+    
+//    [self.view setFrame:CGRectMake(0,-110,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    self.view.center = self.originalCenter;
+//    [self.view setFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+}
 /*
 #pragma mark - Navigation
 
