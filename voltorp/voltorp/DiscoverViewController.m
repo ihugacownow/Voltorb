@@ -213,11 +213,11 @@
 }
 
 
-- (void) addIssueAnnotationFrom:(NSMutableArray*) issues {
+- (void) addIssueAnnotationFrom:(NSArray*) issues {
     for (PFObject *issue in issues) {
            // create a AGSPoint from the GPS coordinates
-    AGSPoint* issuePoint = [[AGSPoint alloc] initWithX:((PFGeoPoint*) issue[@"location"]).longitude
-                                                   y:((PFGeoPoint *) issue[@"location"]).latitude
+    AGSPoint* issuePoint = [[AGSPoint alloc] initWithX:((PFGeoPoint*) issue[@"locationTuple"]).longitude
+                                                   y:((PFGeoPoint *) issue[@"locationTuple"]).latitude
                                     spatialReference:[AGSSpatialReference wgs84SpatialReference]];
     AGSGeometryEngine* engine = [AGSGeometryEngine defaultGeometryEngine];
     
@@ -294,9 +294,11 @@
     
 
     
-    NSMutableArray *issues = [self retrieveIssuesInBoundaries:swBound withPoint:neBound];
+    NSMutableArray *issues = [self retrieveAllIssues];
     
-    [self addIssueAnnotationFrom:issues];
+    self.allIssuesInView =[self getIssuesWithin:issues inbetween:lowerPointConverted and:upperPointConverted];
+    
+    [self addIssueAnnotationFrom:self.allIssuesInView];
     
     [self.listView reloadData];
     
@@ -423,12 +425,18 @@
 ;
 }
 
-//- (NSMutableArray *)getIssuesWithin:(NSMutableArray *)IssuesArray inbetween: (AGSPoint *)swBound and:(AGSPoint *)neBound  {
-//    
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.data.squareFootage.intValue >= %d", [filterSquareFootage intValue]];
-//    return nil;
-//     
-// }
+
+- (NSMutableArray *)getIssuesWithin:(NSMutableArray *)issuesArray inbetween: (AGSPoint *)swBound and:(AGSPoint *)neBound  {
+    NSMutableArray * filteredArray = [[NSMutableArray alloc] init];
+    for (PFObject *obj in issuesArray){
+        PFGeoPoint *pfPoint = ((PFGeoPoint *) obj[@"locationTuple"]);
+        if (([pfPoint latitude] >= [swBound y]) && ([pfPoint latitude] <= [neBound y]) && ([pfPoint longitude] >= [swBound x]) && ([pfPoint longitude] <= [neBound x])){
+            [filteredArray addObject:obj];
+        }
+    }
+    return filteredArray;
+     
+ }
 
 
 
