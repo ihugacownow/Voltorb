@@ -70,6 +70,7 @@
 
     self.firstViewController = [[SignUpViewController alloc] init];
     self.navViewController = [[UINavigationController alloc] initWithRootViewController:self.firstViewController];
+    [self.navViewController setNavigationBarHidden:YES];
     self.window.rootViewController = self.navViewController; 
 
     self.window.backgroundColor = [UIColor whiteColor];

@@ -27,12 +27,21 @@
     // Do any additional setup after loading the view.
     
     self.signUpView = [[SignUpView alloc] initWithFrame: CGRectZero];
-//    self.view.backgroundColor = [Themes lightBlueBackground];
+    
+    self.view.backgroundColor = [UIColor greenColor];
     [self.view addSubview: self.signUpView];
     [self.signUpView.signUpButton addTarget:self action:@selector(goToDiscoverVC) forControlEvents: UIControlEventTouchUpInside];
         [self addGestureRecognizers];
     
-    self.signUpView.nameField.font = [Themes textFieldFont];
+    self.signUpView.nameField.delegate = self;
+    self.signUpView.emailField.delegate = self;
+    self.signUpView.hpNumberField.delegate = self;
+
+    self.signUpView.ICField.delegate = self;
+    self.signUpView.passwordField.delegate = self;
+
+
+    
 }
 
 - (void) viewDidLayoutSubviews {
