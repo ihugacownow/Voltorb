@@ -299,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				CC877B231B647990000F2A83 /* Issue Creation Map View */,
+				4EDD08DC1B646F43003A6DE9 /* WelcomePage */,
 				CC877B1F1B645959000F2A83 /* Tabbar Controller */,
 				CC877B1B1B644F4C000F2A83 /* Theme */,
 				095448911B640206001ECD22 /* Issue Tracking */,
@@ -421,6 +422,13 @@
 				4C137F621B642D0600DD702A /* ArchivedIssuesView.m */,
 			);
 			name = "Archived Issues";
+			sourceTree = "<group>";
+		};
+		4EDD08DC1B646F43003A6DE9 /* WelcomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = WelcomePage;
 			sourceTree = "<group>";
 		};
 		CC877B1B1B644F4C000F2A83 /* Theme */ = {

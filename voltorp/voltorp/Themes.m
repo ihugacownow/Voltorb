@@ -14,4 +14,8 @@
     return [UIFont fontWithName:@"HelveticaNeue-Light"  size:15.00];
 }
 
++(UIColor *)lightBlueBackground {
+    return [UIColor colorWithRed:128 green:241 blue:255 alpha:1.00];
+}
+
 @end
