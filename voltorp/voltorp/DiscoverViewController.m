@@ -94,7 +94,7 @@
     
  
     self.createNewIssue = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.createNewIssue setTitle:@"New Issue" forState:UIControlStateNormal];
+    [self.createNewIssue setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     self.createNewIssue.titleLabel.font = [Themes textFieldFont];
     [self.createNewIssue addTarget:self action:@selector(goTocreateNewIssueVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.createNewIssue];
@@ -317,8 +317,10 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(0.00, 0.00, 300.00, 400.00);
-    self.listView.frame = CGRectMake(0.00, 400.00, 300.00, 100.00);
+    self.mapView.frame = CGRectMake(0.00, 0.00, 350.00, 350.00);
+    self.mapView.center = self.view.center;
+    
+    self.listView.frame = CGRectMake(0.00, 400.00, 350.00, 100.00);
     self.createNewIssue.frame = CGRectMake(250, 520, 50, 50);
     self.listView.dataSource = self;
     self.listView.delegate = self;
