@@ -23,6 +23,7 @@
 		095448971B640249001ECD22 /* IssueTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095448961B640249001ECD22 /* IssueTrackerViewController.m */; };
 		4C137F601B642CF900DD702A /* ArchivedIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C137F5F1B642CF900DD702A /* ArchivedIssuesViewController.m */; };
 		4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C137F621B642D0600DD702A /* ArchivedIssuesView.m */; };
+		4C137F671B648C8C00DD702A /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C137F661B648C8C00DD702A /* wallpaper.jpg */; };
 		4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81161B63C47A009DBC60 /* ProfileView.m */; };
 		4CEC811A1B63C47A009DBC60 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC81181B63C47A009DBC60 /* ProfileViewController.m */; };
 		4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC811C1B63C490009DBC60 /* IssueView.m */; };
@@ -97,6 +98,7 @@
 		4C137F5F1B642CF900DD702A /* ArchivedIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivedIssuesViewController.m; sourceTree = "<group>"; };
 		4C137F611B642D0600DD702A /* ArchivedIssuesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivedIssuesView.h; sourceTree = "<group>"; };
 		4C137F621B642D0600DD702A /* ArchivedIssuesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchivedIssuesView.m; sourceTree = "<group>"; };
+		4C137F661B648C8C00DD702A /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		4CEC81151B63C47A009DBC60 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		4CEC81161B63C47A009DBC60 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		4CEC81171B63C47A009DBC60 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				4C137F661B648C8C00DD702A /* wallpaper.jpg */,
 				CC877B231B647990000F2A83 /* Issue Creation Map View */,
 				4EDD08DC1B646F43003A6DE9 /* WelcomePage */,
 				CC877B1F1B645959000F2A83 /* Tabbar Controller */,
@@ -552,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C137F671B648C8C00DD702A /* wallpaper.jpg in Resources */,
 				4E5C615D1B63C2C100EC7D0A /* ViewTest.xib in Resources */,
 				4CEC81441B641C59009DBC60 /* editImage.png in Resources */,
 				4E5C611F1B63521A00EC7D0A /* Images.xcassets in Resources */,

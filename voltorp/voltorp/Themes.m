@@ -11,7 +11,7 @@
 @implementation Themes
 
 +(UIFont *)textFieldFont {
-    return [UIFont fontWithName:@"HelveticaNeue-Light"  size:18.00];
+    return [UIFont fontWithName:@"HelveticaNeue-Light"  size:16.00];
 }
 
 +(UIColor *)lightBlueBackground {

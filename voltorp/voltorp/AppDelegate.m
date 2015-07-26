@@ -42,6 +42,7 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper.jpg"]]];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

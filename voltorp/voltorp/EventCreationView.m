@@ -35,10 +35,12 @@
     self.editEventImageView.frame = CGRectMake(self.bounds.size.width - 75, 125, 25, 25);
     
     // edit sign up button
-    double buttonWidth = 100;
+    double buttonWidth = 200;
     self.createEventButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 460, buttonWidth, 30);
-    [self.createEventButton setTitle:@"create event" forState:UIControlStateNormal];
-    [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.createEventButton setTitle:@"Create" forState:UIControlStateNormal];
+    [self.createEventButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.createEventButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    self.createEventButton.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     
     // edit "edit event image" button
     self.editEventImageButton.frame = CGRectMake(self.bounds.size.width - 30, 110, 20, 20);
@@ -57,12 +59,13 @@
 - (void) loadImageViews {
     self.coverImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     [self addSubview:self.coverImageView];
+    self.coverImageView.alpha = 0.7;
 }
 
 - (void) loadLabelsAndTextFields {
     self.eventNameTextfield = [[UITextField alloc] initWithFrame:CGRectMake(20, 110, 200, 30)];
     self.eventNameTextfield.placeholder = @"Event name";
-    self.eventNameTextfield.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0];
+    self.eventNameTextfield.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0];
     //    self.eventNameLabel.layer.borderColor = [UIColor blackColor].CGColor;
     //    self.eventNameLabel.layer.borderWidth = 1.0;
     [self addSubview:self.eventNameTextfield];
@@ -93,8 +96,8 @@
 
 - (void) loadButtons {  
     self.createEventButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    self.createEventButton.layer.borderColor = [UIColor blackColor].CGColor;
-    self.createEventButton.layer.borderWidth = 1.0;
+//    self.createEventButton.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.createEventButton.layer.borderWidth = 1.0;
     [self addSubview:self.createEventButton];
     
     self.editEventImageButton = [[UIButton alloc] initWithFrame:CGRectZero];

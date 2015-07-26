@@ -32,6 +32,8 @@
     [self.eventCreationView.eventNameTextfield setDelegate:self];
     [self.eventCreationView.dateTextfield setDelegate:self];
 
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper.jpg"]];
+    
     [self addSelectors];
     
 }

@@ -35,14 +35,17 @@
     [self.view addSubview:self.profileView];
     
     NSMutableDictionary *userData = [self getUserData:self.objectIDToLoad];
-    self.profileView.nameLabel.text = [userData objectForKey:@"usersName"];
-    self.profileView.locationLabel.text = [userData objectForKey:@"usersLocation"];
-    
-    tableData = @[@"1", @"2"];
+    if ([userData objectForKey:@"usersName"]) {
+        self.profileView.nameLabel.text = [userData objectForKey:@"usersName"];
+    }
+    if ([userData objectForKey:@"usersLocation"]) {
+        self.profileView.locationLabel.text = [userData objectForKey:@"usersLocation"];
+    }
     
     [self.profileView.issuesTableView setDelegate:self];
     [self.profileView.issuesTableView setDataSource:self];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper.jpg"]];
     
     // TESTING HERE
     NSMutableArray *test = [self retrieveIssuesByUser:self.objectIDToLoad];
@@ -75,6 +78,14 @@
         [dataValue addObject:results[@"homeDistrict"]];
         NSArray *dataKeys = @[@"usersName", @"usersLocation"];
         NSMutableDictionary *output = [[NSMutableDictionary alloc] initWithObjects:dataValue forKeys:dataKeys];
+        
+        // profile image
+        NSData *currData = [results[@"profilePicture"] getData];
+        if (currData) {
+            UIImage *pp = [UIImage imageWithData:currData];
+            self.profileView.profilePictureImageView.image = pp;
+        } 
+        
         return output;
     } else {
         NSLog(@"error in retrieving user data");

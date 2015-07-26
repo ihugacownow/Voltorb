@@ -30,10 +30,9 @@
     
     
     if (self) {
-        self.backgroundColor = [Themes lightBlueBackground];
+//        self.backgroundColor = [Themes lightBlueBackground];
 
-        self.alpha = 1.00;
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = [UIColor clearColor];
         
 
         
@@ -68,7 +67,7 @@
         [self.signUpButton setTitle: @"Register" forState: UIControlStateNormal];
         
         [self.signUpButton setTitleColor: [Themes darkBlue] forState: UIControlStateNormal];
-        self.signUpButton.titleLabel.font = [Themes textFieldBiggerFont];
+        self.signUpButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
         
         
         [self addSubview: self.nameField];
@@ -99,8 +98,9 @@
     self.hpNumberField.frame = CGRectMake(leftMargin, CGRectGetMaxY(self.emailField.frame) + 20, width, height);
 
     // sign up button
-    float buttonY = CGRectGetMaxY(self.hpNumberField.frame) + 20;
+    float buttonY = CGRectGetMaxY(self.hpNumberField.frame) + 30;
     self.signUpButton.frame = CGRectMake(0, buttonY, width, height);
+    self.signUpButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     [self.signUpButton setCenter: CGPointMake(self.bounds.size.width / 2, buttonY)];
     
     // edit image view
@@ -116,9 +116,7 @@
     UIImageView *inset = [[UIImageView alloc] initWithFrame: CGRectMake(40, 40, 40, 40)];
     inset.image = [UIImage imageNamed:@"plus"];
     [self.imageView addSubview:inset];
-    self.imageView.layer.cornerRadius = 60.00;
-    self.imageView.layer.backgroundColor = [[UIColor lightGrayColor] CGColor];
-    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
     
     self.imageView.userInteractionEnabled = YES;
     [self addSubview:self.imageView];

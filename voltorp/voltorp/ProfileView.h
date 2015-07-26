@@ -21,4 +21,7 @@
 // table views
 @property (nonatomic, strong) UITableView *issuesTableView;
 
+// image view
+@property (nonatomic, strong) UIImageView *profilePictureImageView;
+
 @end

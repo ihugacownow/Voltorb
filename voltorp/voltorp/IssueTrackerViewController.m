@@ -32,7 +32,7 @@
     [self.issueTrackerView.postsTableView setDataSource:self];
     
     // TODO: not hard code
-  
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper.jpg"]];
     
     [self addSelectors];
     // Do any additional setup after loading the view.

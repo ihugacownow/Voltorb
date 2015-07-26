@@ -32,7 +32,7 @@
 - (void) layoutSubviews {
     self.topBarName.frame = CGRectMake(0, 0, self.bounds.size.width, 50);
     
-    self.tableViewForIssues.frame = CGRectMake(30, 100, self.bounds.size.width - 60, 450);
+    self.tableViewForIssues.frame = CGRectMake(30, 100, self.bounds.size.width - 60, 400);
 }
 
 - (void) loadUI {
@@ -43,8 +43,9 @@
 
 - (void) loadTopBar {
     self.topBarName = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.topBarName.backgroundColor = [UIColor colorWithRed:255/255.0 green:204/255.0 blue:204/255.0 alpha:1.0];
+    self.topBarName.backgroundColor = [UIColor colorWithRed:10/255.0 green:10/255.0 blue:10/255.0 alpha:0.8];
     self.topBarName.text = @"Issue Listings";
+    self.topBarName.textColor = [UIColor whiteColor];
     self.topBarName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
     self.topBarName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.topBarName];
@@ -52,8 +53,10 @@
 
 - (void) loadTableView {
     self.tableViewForIssues = [[UITableView alloc] initWithFrame:CGRectZero];
-    self.tableViewForIssues.layer.borderColor = [UIColor blackColor].CGColor;
-    self.tableViewForIssues.layer.borderWidth = 1.0;
+//    self.tableViewForIssues.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.tableViewForIssues.layer.borderWidth = 1.0;
+    self.tableViewForIssues.layer.cornerRadius = 7;
+    self.tableViewForIssues.layer.masksToBounds = YES;
     [self addSubview:self.tableViewForIssues];
 }
 
@@ -65,11 +68,17 @@
     NSArray *itemArray = [NSArray arrayWithObjects: @"Old", @"Current", nil];
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
     self.segmentedControl.frame = CGRectMake(35, 60, 250, 30);
-    self.segmentedControl.segmentedControlStyle = UISegmentedControlStylePlain;
     [self.segmentedControl addTarget:self action:@selector(MySegmentControlAction:) forControlEvents: UIControlEventValueChanged];
     self.segmentedControl.selectedSegmentIndex = 1;
     [scroll addSubview:self.segmentedControl];
     [self addSubview:scroll];
+    
+    self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *newTintColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    self.segmentedControl.tintColor = newTintColor;
+    
+    UIColor *newSelectedTintColor = [UIColor colorWithRed: 255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    [[[self.segmentedControl subviews] objectAtIndex:0] setTintColor:newSelectedTintColor];
 }
 
 - (void)MySegmentControlAction:(UISegmentedControl *)segment

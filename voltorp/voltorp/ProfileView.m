@@ -13,9 +13,6 @@
 // top bar
 @property (nonatomic, strong) UILabel *topBarName;
 
-// image view
-@property (nonatomic, strong) UIImageView *profilePictureImageView;
-
 @end
 
 @implementation ProfileView
@@ -47,8 +44,9 @@
 
 - (void) loadTopBar {
     self.topBarName = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.topBarName.backgroundColor = [UIColor colorWithRed:255/255.0 green:204/255.0 blue:204/255.0 alpha:1.0];
+    self.topBarName.backgroundColor = [UIColor colorWithRed:10/255.0 green:10/255.0 blue:10/255.0 alpha:0.8];
     self.topBarName.text = @"Profile";
+    self.topBarName.textColor = [UIColor whiteColor];
     self.topBarName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
     self.topBarName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.topBarName];
@@ -56,14 +54,14 @@
 
 - (void) createTextLabels {
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 95, 200, 30)];
-    self.nameLabel.text = @"Test name";
+    self.nameLabel.text = @"Wai Choong";
     self.nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0];
 //    self.nameLabel.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.nameLabel.layer.borderWidth = 1.0;
     [self addSubview:self.nameLabel];
 
     self.locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 115, 200, 30)];
-    self.locationLabel.text = @"Test location";
+    self.locationLabel.text = @"Serangoon";
     self.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
 //    self.locationLabel.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.locationLabel.layer.borderWidth = 1.0;
@@ -90,13 +88,20 @@
     self.profilePictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30, 80, 80, 80)];
     self.profilePictureImageView.layer.borderColor = [UIColor blackColor].CGColor;
     self.profilePictureImageView.layer.borderWidth = 1.0;
+    self.profilePictureImageView.image = [UIImage imageNamed:@"verified.png"];
+    
+    self.profilePictureImageView.layer.cornerRadius = 60.00;
+    self.profilePictureImageView.layer.masksToBounds = YES;
+    
     [self addSubview:self.profilePictureImageView];
 }
 
 - (void) loadTableView {
     self.issuesTableView = [[UITableView alloc] initWithFrame:CGRectZero];
-    self.issuesTableView.layer.borderWidth = 1.0;
-    self.issuesTableView.layer.borderColor = [UIColor blackColor].CGColor;
+//    self.issuesTableView.layer.borderWidth = 1.0;
+//    self.issuesTableView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.issuesTableView.layer.cornerRadius = 7;
+    self.issuesTableView.layer.masksToBounds = YES;
     [self addSubview:self.issuesTableView];
 }
 
