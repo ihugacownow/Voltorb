@@ -22,5 +22,7 @@
 
 // buttons
 @property (nonatomic, strong) UIButton *proposeNewEventButton;
+@property (nonatomic, strong) UIButton *resolutionButton;
+
 
 @end

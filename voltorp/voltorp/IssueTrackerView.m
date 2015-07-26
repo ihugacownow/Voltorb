@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UILabel *scheduledEventLabel;
 
 // buttons
-@property (nonatomic, strong) UIButton *resolutionButton;
 
 @end
 
@@ -46,6 +45,10 @@
     self.proposeNewEventButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 450, buttonWidth, 30);
     [self.proposeNewEventButton setTitle:@"propose solution" forState:UIControlStateNormal];
     [self.proposeNewEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.resolutionButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 500, buttonWidth, 30);
+    [self.resolutionButton setTitle:@"Home page" forState:UIControlStateNormal];
+    [self.resolutionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
 }
 
@@ -102,9 +105,12 @@
 
 - (void) loadButton {
     self.proposeNewEventButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    self.resolutionButton = [[UIButton alloc] initWithFrame:CGRectZero];
 //    self.proposeNewEventButton.layer.borderColor = [UIColor blackColor].CGColor;
 //    self.proposeNewEventButton.layer.borderWidth = 1.0;
     [self addSubview:self.proposeNewEventButton];
+    [self addSubview:self.resolutionButton];
+
 }
 
 /*

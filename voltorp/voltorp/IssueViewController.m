@@ -66,6 +66,11 @@
     NSLog(@"submit button pressed");
     // update to database
     [self uploadIssueToParse];
+    [self goBack];
+}
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction) tapImageView:(id)sender {

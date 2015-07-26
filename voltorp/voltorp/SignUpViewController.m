@@ -28,6 +28,8 @@
     [self.view addSubview: self.signUpView];
     [self.signUpView.signUpButton addTarget:self action:@selector(goToDiscoverVC) forControlEvents: UIControlEventTouchUpInside];
         [self addGestureRecognizers];
+    
+    self.signUpView.nameField.font = [Themes textFieldFont];
 }
 
 - (void) viewDidLayoutSubviews {

@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     
     self.eventCreationView = [[EventCreationView alloc] initWithFrame:CGRectZero];
@@ -81,9 +82,12 @@
 
 }
 
-- (IBAction )createEventButtonPressed:(id)sender {
+- (void)createEventButtonPressed:(id)sender {
     NSLog(@"creating event now!");
-    [self createEvent];
+//    [self createEvent];
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"YES");
+    }];
 }
 
 # pragma mark - database queries

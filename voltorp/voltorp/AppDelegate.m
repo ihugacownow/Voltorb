@@ -59,7 +59,9 @@
     
 //    self.tabBarController.viewControllers = controllers;
     
-    self.window.rootViewController = [[IssueTrackerViewController alloc] init];
+
+//    self.window.rootViewController = [[SignUpViewController alloc] init];
+    //self.window.rootViewController = [[EventCreationViewController alloc] init];
     
 //    self.window.rootViewController = [[IssueViewController alloc] init];
 //    self.window.rootViewController = [[DiscoverViewController alloc] init];

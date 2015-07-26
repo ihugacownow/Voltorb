@@ -48,6 +48,7 @@
 }
 
 - (void) loadUI {
+    
     [self loadImageViews];
     [self loadLabelsAndTextFields];
     [self loadButtons];

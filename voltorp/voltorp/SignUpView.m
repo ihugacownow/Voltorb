@@ -27,33 +27,35 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor lightGrayColor];
+        
+
         
         self.nameField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.nameField.placeholder = @"Name";
-        self.nameField.layer.borderWidth = 1.0;
-        self.nameField.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.nameField.layer.borderWidth = 1.0;
+//        self.nameField.layer.borderColor = [UIColor blackColor].CGColor;
         
         self.emailField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.emailField.placeholder = @"Email";
-        self.emailField.layer.borderWidth = 1.0;
-        self.emailField.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.emailField.layer.borderWidth = 1.0;
+//        self.emailField.layer.borderColor = [UIColor blackColor].CGColor;
         
         self.hpNumberField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.hpNumberField.placeholder = @"HP Number";
-        self.hpNumberField.layer.borderWidth = 1.0;
-        self.hpNumberField.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.hpNumberField.layer.borderWidth = 1.0;
+//        self.hpNumberField.layer.borderColor = [UIColor blackColor].CGColor;
         
         self.ICField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.ICField.placeholder = @"NRIC";
-        self.ICField.layer.borderWidth = 1.0;
-        self.ICField.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.ICField.layer.borderWidth = 1.0;
+//        self.ICField.layer.borderColor = [UIColor blackColor].CGColor;
        
         self.passwordField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.passwordField.placeholder = @"Password";
         self.passwordField.secureTextEntry = YES;
-        self.passwordField.layer.borderWidth = 1.0;
-        self.passwordField.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.passwordField.layer.borderWidth = 1.0;
+//        self.passwordField.layer.borderColor = [UIColor blackColor].CGColor;
         
         self.signUpButton = [[UIButton alloc] init];
         [self.signUpButton setTitle: @"Register" forState: UIControlStateNormal];

@@ -54,6 +54,8 @@
 		4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		4E5C61701B643E5200EC7D0A /* EventCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC813E1B641608009DBC60 /* EventCreationView.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
+		CC877B1E1B644F57000F2A83 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B1D1B644F57000F2A83 /* Themes.m */; };
+		CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B211B6459D3000F2A83 /* PostDiscTBController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,10 @@
 		4E5C616B1B63EC1B00EC7D0A /* IssuesBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesBaseViewController.h; sourceTree = "<group>"; };
 		4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesBaseViewController.m; sourceTree = "<group>"; };
 		515CC45633EAB096220F37B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC877B1C1B644F57000F2A83 /* Themes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Themes.h; sourceTree = "<group>"; };
+		CC877B1D1B644F57000F2A83 /* Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
+		CC877B201B6459D3000F2A83 /* PostDiscTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDiscTBController.h; sourceTree = "<group>"; };
+		CC877B211B6459D3000F2A83 /* PostDiscTBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDiscTBController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,8 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				CC877B1F1B645959000F2A83 /* Tabbar Controller */,
+				CC877B1B1B644F4C000F2A83 /* Theme */,
 				095448911B640206001ECD22 /* Issue Tracking */,
 				4CEC81431B641C59009DBC60 /* editImage.png */,
 				4CEC813A1B64022A009DBC60 /* verified.png */,
@@ -406,6 +414,24 @@
 				4C137F621B642D0600DD702A /* ArchivedIssuesView.m */,
 			);
 			name = "Archived Issues";
+			sourceTree = "<group>";
+		};
+		CC877B1B1B644F4C000F2A83 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				CC877B1C1B644F57000F2A83 /* Themes.h */,
+				CC877B1D1B644F57000F2A83 /* Themes.m */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
+		CC877B1F1B645959000F2A83 /* Tabbar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC877B201B6459D3000F2A83 /* PostDiscTBController.h */,
+				CC877B211B6459D3000F2A83 /* PostDiscTBController.m */,
+			);
+			name = "Tabbar Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +581,8 @@
 				4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */,
 				4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */,
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
+				CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */,
+				CC877B1E1B644F57000F2A83 /* Themes.m in Sources */,
 				4E5C61671B63E5DB00EC7D0A /* IssuesTabBarController.m in Sources */,
 				4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */,
 				4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */,

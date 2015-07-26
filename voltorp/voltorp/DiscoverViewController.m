@@ -9,6 +9,10 @@
 #import "DiscoverViewController.h"
 #import <ArcGIS/ArcGIS.h>
 #import <Parse/Parse.h>
+#import "IssueTrackerViewController.h"
+#import "Themes.h"
+#import "IssueViewController.h"
+#import "PostDiscTBController.h"
 @import CoreLocation;
 
 @interface DiscoverViewController () <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSCalloutDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -23,6 +27,7 @@
 @property (strong, nonatomic) AGSTiledMapServiceLayer *tiledLayer;
 @property (strong, nonatomic) NSMutableArray *allIssuesInView;
 @property (strong, nonatomic) NSMutableArray *allIssues;
+@property (strong, nonatomic) UIButton *createNewIssue;
 
 //@property (strong, nonatomic)
 
@@ -87,7 +92,18 @@
     self.allIssues = [NSMutableArray new];
     self.allIssues = [self retrieveAllIssues];
     
+ 
+    self.createNewIssue = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.createNewIssue setTitle:@"New Issue" forState:UIControlStateNormal];
+    self.createNewIssue.titleLabel.font = [Themes textFieldFont];
+    [self.createNewIssue addTarget:self action:@selector(goTocreateNewIssueVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.createNewIssue];
+}
+
+- (void) goTocreateNewIssueVC {
+    IssueViewController *vc = [[IssueViewController alloc] init];
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void) addAnnotation {
@@ -300,7 +316,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.mapView.frame = CGRectMake(0.00, 0.00, 300.00, 400.00);
-    self.listView.frame = CGRectMake(0.00, 450.00, 300.00, 200.00);
+    self.listView.frame = CGRectMake(0.00, 400.00, 300.00, 100.00);
+    self.createNewIssue.frame = CGRectMake(250, 520, 50, 50);
     self.listView.dataSource = self;
     self.listView.delegate = self;
     
@@ -334,15 +351,38 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *passedUser = [self.allIssuesInView objectAtIndex:indexPath.row];
     [self goToSpecificIssueVC:passedUser];
-    
-    UIViewController *vc = [[UIViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+  
   
 }
 
--(void)goToSpecificIssueVC:(PFObject *)user {
+-(void)goToSpecificIssueVC:(PFObject *)issue {
     
+   
+    IssueTrackerViewController *vc = [[IssueTrackerViewController alloc] init];
+    
+    
+    PostDiscTBController *rc = [[PostDiscTBController alloc] init];
+    rc.profileVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"test"] tag:1];
+    rc.discoverVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Discover" image:[UIImage imageNamed:@"test"] tag:1];
+    rc.listVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Archive" image:[UIImage imageNamed:@"test"] tag:1];
+    
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;   
+   
+    [self presentViewController:vc animated:YES completion:^{
+        vc.issue = issue;
+        [vc updateState];
+        [self.navigationController pushViewController:rc animated:NO];
+
+    }];
+    
+    
+    
+    
+    
+    
+//    [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 #pragma mark Location Manager Delegate Methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -383,12 +423,12 @@
 ;
 }
 
-- (NSMutableArray *)getIssuesWithin:(NSMutableArray *)IssuesArray inbetween: (AGSPoint *)swBound and:(AGSPoint *)neBound  {
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.data.squareFootage.intValue >= %d", [filterSquareFootage intValue]];
-    return
-     
- }
+//- (NSMutableArray *)getIssuesWithin:(NSMutableArray *)IssuesArray inbetween: (AGSPoint *)swBound and:(AGSPoint *)neBound  {
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.data.squareFootage.intValue >= %d", [filterSquareFootage intValue]];
+//    return nil;
+//     
+// }
 
 
 

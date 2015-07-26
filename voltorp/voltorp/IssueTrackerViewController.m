@@ -8,7 +8,7 @@
 
 #import "IssueTrackerViewController.h"
 #import "IssueTrackerView.h"
-#import <Parse/Parse.h>
+#import "EventCreationViewController.h"
 
 @interface IssueTrackerViewController ()
 
@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.issueTrackerView = [[IssueTrackerView alloc] initWithFrame: CGRectZero];
     [self.view addSubview: self.issueTrackerView];
     
@@ -31,12 +32,18 @@
     [self.issueTrackerView.postsTableView setDataSource:self];
     
     // TODO: not hard code
-    [self retrieveEventDetailsWithObjectID:@"A7kRuIglWL"];
-    [self retrieveAssociatedEventsForThisIssueOfObjectID:@"A7kRuIglWL"];
+  
     
     [self addSelectors];
     // Do any additional setup after loading the view.
 }
+
+- (void)updateState {
+    [self retrieveEventDetailsWithObjectID:[self.issue objectId]];
+    [self retrieveAssociatedEventsForThisIssueOfObjectID:[self.issue objectId]];
+}
+
+
 
 - (void) viewDidLayoutSubviews {
     self.issueTrackerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -119,12 +126,28 @@
     [self.issueTrackerView.proposeNewEventButton addTarget:self
                                                     action:@selector(proposeNewEventButtonPressed:)
                                           forControlEvents:UIControlEventTouchUpInside];
+    [self.issueTrackerView.resolutionButton addTarget:self action:@selector(resolveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
 # pragma mark - selectors
-- (IBAction )proposeNewEventButtonPressed:(id)sender {
+- (void)resolveButtonPressed:(id)sender {
+    [self.presentingViewController
+     dismissViewControllerAnimated:YES
+     completion:nil];
     NSLog(@"segue to create new event now!");
+}
+- (void)proposeNewEventButtonPressed:(id)sender {
+    
+    EventCreationViewController *vc = [[EventCreationViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+        NSLog(@"segue to create new event now!");
+
+    }];
+   
+
+    
+    
 }
 
 
