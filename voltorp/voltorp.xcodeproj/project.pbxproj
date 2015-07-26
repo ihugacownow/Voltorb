@@ -56,6 +56,8 @@
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 		CC877B1E1B644F57000F2A83 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B1D1B644F57000F2A83 /* Themes.m */; };
 		CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B211B6459D3000F2A83 /* PostDiscTBController.m */; };
+		CC877B261B6479DF000F2A83 /* IssueCreationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B251B6479DF000F2A83 /* IssueCreationMapViewController.m */; };
+		CC877B2E1B647B8D000F2A83 /* IssueCreationMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B2D1B647B8D000F2A83 /* IssueCreationMapView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,10 @@
 		CC877B1D1B644F57000F2A83 /* Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		CC877B201B6459D3000F2A83 /* PostDiscTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDiscTBController.h; sourceTree = "<group>"; };
 		CC877B211B6459D3000F2A83 /* PostDiscTBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDiscTBController.m; sourceTree = "<group>"; };
+		CC877B241B6479DF000F2A83 /* IssueCreationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueCreationMapViewController.h; sourceTree = "<group>"; };
+		CC877B251B6479DF000F2A83 /* IssueCreationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCreationMapViewController.m; sourceTree = "<group>"; };
+		CC877B2C1B647B8D000F2A83 /* IssueCreationMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueCreationMapView.h; sourceTree = "<group>"; };
+		CC877B2D1B647B8D000F2A83 /* IssueCreationMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCreationMapView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +298,7 @@
 		4E5C61101B63521A00EC7D0A /* voltorp */ = {
 			isa = PBXGroup;
 			children = (
+				CC877B231B647990000F2A83 /* Issue Creation Map View */,
 				CC877B1F1B645959000F2A83 /* Tabbar Controller */,
 				CC877B1B1B644F4C000F2A83 /* Theme */,
 				095448911B640206001ECD22 /* Issue Tracking */,
@@ -432,6 +439,17 @@
 				CC877B211B6459D3000F2A83 /* PostDiscTBController.m */,
 			);
 			name = "Tabbar Controller";
+			sourceTree = "<group>";
+		};
+		CC877B231B647990000F2A83 /* Issue Creation Map View */ = {
+			isa = PBXGroup;
+			children = (
+				CC877B241B6479DF000F2A83 /* IssueCreationMapViewController.h */,
+				CC877B251B6479DF000F2A83 /* IssueCreationMapViewController.m */,
+				CC877B2C1B647B8D000F2A83 /* IssueCreationMapView.h */,
+				CC877B2D1B647B8D000F2A83 /* IssueCreationMapView.m */,
+			);
+			name = "Issue Creation Map View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -580,6 +598,7 @@
 				4E5C61641B63E58800EC7D0A /* ArchiveViewController.m in Sources */,
 				4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */,
 				4CEC811F1B63C490009DBC60 /* IssueView.m in Sources */,
+				CC877B261B6479DF000F2A83 /* IssueCreationMapViewController.m in Sources */,
 				4E5C61541B637B7300EC7D0A /* DiscoverViewController.m in Sources */,
 				CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */,
 				CC877B1E1B644F57000F2A83 /* Themes.m in Sources */,
@@ -588,6 +607,7 @@
 				4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */,
 				4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
+				CC877B2E1B647B8D000F2A83 /* IssueCreationMapView.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,
 				4E5C61391B63602200EC7D0A /* RootViewController.m in Sources */,
 				4E5C61571B637B8700EC7D0A /* SignUpViewController.m in Sources */,
