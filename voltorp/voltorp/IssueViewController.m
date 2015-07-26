@@ -10,10 +10,11 @@
 #import "IssueView.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Parse/Parse.h>
+#import "IssueCreationMapViewController.h"
 
 @interface IssueViewController ()
 
-@property (nonatomic, strong) IssueView *issueView;
+
 
 @end
 
@@ -22,9 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.issueView = [[IssueView alloc] initWithFrame:CGRectZero];
     self.issueView.detailsTextField.delegate = self;
-    self.issueView.incidentLocationTextField.delegate = self; 
+    self.issueView.incidentLocationTextField.delegate = self;
+    
     
     [self.view addSubview:self.issueView];
     
@@ -36,6 +39,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    IssueCreationMapViewController *vc = [[IssueCreationMapViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+        NSLog(@"he");
+        vc.previousVC = self;
+    }];
+    return YES;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    self.issueView.incidentLocationTextField.text = self.issueView.postal;
 }
 
 - (void) viewDidLayoutSubviews {

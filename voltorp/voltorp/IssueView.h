@@ -19,5 +19,7 @@
 // text fields
 @property (nonatomic, strong) UITextField *detailsTextField;
 @property (nonatomic, strong) UITextField *incidentLocationTextField;
+@property (nonatomic, strong) NSString *postal; 
+
 
 @end

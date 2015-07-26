@@ -7,6 +7,7 @@
 //
 
 #import "IssueCreationMapViewController.h"
+#import "IssueViewController.h"
 #import <ArcGIS/ArcGIS.h>
 #import <Parse/Parse.h>
 #import "Themes.h"
@@ -23,21 +24,34 @@
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) AGSGraphicsLayer *myGraphicsLayer;
 @property (strong, nonatomic) AGSTiledMapServiceLayer *tiledLayer;
+@property (strong, nonatomic) UIButton *done;
+@property (strong, nonatomic) NSString *postal;
 
 @end
 
 @implementation IssueCreationMapViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Create New Issue" image:[UIImage imageNamed:@"test"] selectedImage:[UIImage imageNamed:@"test"]];
     
+    self.done = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.done setTitle:@"Done" forState:UIControlStateNormal];
+    [self.done setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.done setBackgroundColor:[UIColor blackColor]];
+    
+    [self.done addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.done];
+    
     //Add a basemap tiled layer
     NSURL* url = [NSURL URLWithString:@"http://e1.onemap.sg/arcgis/rest/services/SM128/MapServer"];
     
+    
     // Map View
     self.mapView = [[AGSMapView alloc] initWithFrame:CGRectZero];
+    
     
     self.tiledLayer = [AGSTiledMapServiceLayer tiledMapServiceLayerWithURL:url];
     
@@ -70,7 +84,32 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
+    [self.view bringSubviewToFront:self.done];
+
     
+}
+
+- (void)goBack {
+    
+    self.previousVC.issueView.postal = self.postal;
+    [self.previousVC.issueView.incidentLocationTextField setText:self.postal];
+    self.previousVC.issueView.incidentLocationTextField.text = self.postal;
+    
+    [self.previousVC.issueView.incidentLocationTextField setNeedsLayout];
+
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"d");
+        
+//        ((IssueViewController *) self.presentingViewController).issueView.postal = self.postal;
+//        [((IssueViewController *) self.presentingViewController).issueView.incidentLocationTextField setNeedsLayout];
+//        [((IssueViewController *) self.presentingViewController).issueView.incidentLocationTextField setText:self.postal];
+//        [((IssueViewController *) self.presentingViewController).issueView setNeedsLayout];
+        
+       
+       
+
+    }];
     
 }
 
@@ -114,7 +153,9 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(0.00, 0.00, self.view.frame.size.width, self.view.frame.size.height);
+    self.mapView.frame = CGRectMake(0.00, 0.00, self.view.frame.size.width, self.view.frame.size.height- 200);
+    
+    self.done.frame = CGRectMake(100, 400, 100, 70);
     
 }
 
@@ -192,6 +233,7 @@
     
     NSArray *myResults = [results valueForKeyPath:@"GeocodeInfo"];
     NSString * postalCode = myResults[0][@"POSTALCODE"];
+    self.postal = postalCode;
     NSLog(@"%@", postalCode);
 }
 

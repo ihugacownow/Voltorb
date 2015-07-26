@@ -61,6 +61,7 @@
 		CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B211B6459D3000F2A83 /* PostDiscTBController.m */; };
 		CC877B261B6479DF000F2A83 /* IssueCreationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B251B6479DF000F2A83 /* IssueCreationMapViewController.m */; };
 		CC877B2E1B647B8D000F2A83 /* IssueCreationMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B2D1B647B8D000F2A83 /* IssueCreationMapView.m */; };
+		CC877B311B64AC4A000F2A83 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B301B64AC4A000F2A83 /* CustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,8 @@
 		CC877B251B6479DF000F2A83 /* IssueCreationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCreationMapViewController.m; sourceTree = "<group>"; };
 		CC877B2C1B647B8D000F2A83 /* IssueCreationMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueCreationMapView.h; sourceTree = "<group>"; };
 		CC877B2D1B647B8D000F2A83 /* IssueCreationMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCreationMapView.m; sourceTree = "<group>"; };
+		CC877B2F1B64AC4A000F2A83 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		CC877B301B64AC4A000F2A83 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +405,8 @@
 			children = (
 				4E5C61521B637B7300EC7D0A /* DiscoverViewController.h */,
 				4E5C61531B637B7300EC7D0A /* DiscoverViewController.m */,
+				CC877B2F1B64AC4A000F2A83 /* CustomCell.h */,
+				CC877B301B64AC4A000F2A83 /* CustomCell.m */,
 				4E5C615C1B63C2C100EC7D0A /* ViewTest.xib */,
 			);
 			name = "Discover ";
@@ -614,6 +619,7 @@
 			files = (
 				4E5C61701B643E5200EC7D0A /* EventCreationView.m in Sources */,
 				4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */,
+				CC877B311B64AC4A000F2A83 /* CustomCell.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
 				4EDD08E21B647ADA003A6DE9 /* CustomTextField.m in Sources */,
@@ -682,6 +688,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -725,6 +732,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

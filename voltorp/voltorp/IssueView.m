@@ -7,6 +7,7 @@
 //
 
 #import "IssueView.h"
+#import "Themes.h"
 
 @interface IssueView ()
 
@@ -49,7 +50,7 @@
     double widthOfSubmitButton = 100;
     self.submitButton.frame = CGRectMake((self.bounds.size.width - widthOfSubmitButton)/2, 480, widthOfSubmitButton, 30);
     [self.submitButton setTitle:@"submit" forState:UIControlStateNormal];
-    [self.submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     // edit description textfield
     self.detailsTextField.frame = CGRectMake(30, 355, self.bounds.size.width - 60, 110);
@@ -57,7 +58,8 @@
     
     // edit location textfield
     self.incidentLocationTextField.frame = CGRectMake(30, 300, self.bounds.size.width - 60, 30);
-    self.incidentLocationTextField.placeholder = @"waichoong, fix this";
+    self.incidentLocationTextField.placeholder = @"Update location...";
+    
 }
 
 - (void) loadUI {
@@ -70,16 +72,17 @@
 
 - (void) loadTopBar {
     self.topBarName = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.topBarName.backgroundColor = [UIColor colorWithRed:255/255.0 green:204/255.0 blue:204/255.0 alpha:1.0];
+    self.topBarName.backgroundColor = [UIColor colorWithRed:10/255.0 green:10/255.0 blue:10/255.0 alpha:1.0];
     self.topBarName.text = @"Create Issue";
     self.topBarName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    self.topBarName.textColor = [UIColor whiteColor];
     self.topBarName.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.topBarName];
 }
 
 - (void) createTextLabels {
     self.categoryLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.categoryLabel.text = @"<category>";
+    self.categoryLabel.text = @"";
     self.categoryLabel.textAlignment = NSTextAlignmentCenter;
     self.categoryLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0];
     [self addSubview:self.categoryLabel];
@@ -119,6 +122,9 @@
     self.submitButton = [[UIButton alloc] initWithFrame:CGRectZero];
     self.submitButton.layer.borderColor = [UIColor blackColor].CGColor;
     self.submitButton.layer.borderWidth = 1.0;
+    self.submitButton.backgroundColor = [UIColor  colorWithRed:10/255.0 green:10/255.0 blue:10/255.0 alpha:0.8];
+    [self.submitButton setTitleColor:[Themes darkBlue] forState:UIControlStateNormal];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
     [self addSubview:self.submitButton];
 }
 

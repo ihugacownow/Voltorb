@@ -13,6 +13,7 @@
 #import "Themes.h"
 #import "IssueViewController.h"
 #import "PostDiscTBController.h"
+#import "CustomCell.h"
 @import CoreLocation;
 
 @interface DiscoverViewController () <AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSCalloutDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -317,11 +318,13 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.mapView.frame = CGRectMake(0.00, 0.00, 350.00, 350.00);
-    self.mapView.center = self.view.center;
+    self.mapView.frame = CGRectMake(0.00, 0.00, 350.00, 370.00);
+//    self.mapView.center = self.view.center;
     
-    self.listView.frame = CGRectMake(0.00, 400.00, 350.00, 100.00);
-    self.createNewIssue.frame = CGRectMake(250, 520, 50, 50);
+    self.listView.frame = CGRectMake(0.00, 370.00, 350.00, 100.00);
+    self.createNewIssue.frame = CGRectMake(280, 320, 30, 30);
+//    [self.listView registerClass:[CustomCell class] forCellReuseIdentifier:@"customCell"];
+
     self.listView.dataSource = self;
     self.listView.delegate = self;
     
@@ -336,18 +339,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier = @"customCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
 
     cell.textLabel.text = [self.allIssuesInView objectAtIndex:indexPath.row][@"description"];
     cell.textLabel.textColor = [UIColor blackColor];
     
+    cell.countView.text = @"1";
+    cell.countView.textColor = [UIColor blackColor];
     
     return cell;
 }

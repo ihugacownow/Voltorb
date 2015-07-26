@@ -44,11 +44,13 @@
     double buttonWidth = 200;
     self.proposeNewEventButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 450, buttonWidth, 30);
     [self.proposeNewEventButton setTitle:@"propose solution" forState:UIControlStateNormal];
-    [self.proposeNewEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.proposeNewEventButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.proposeNewEventButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
     self.resolutionButton.frame = CGRectMake((self.bounds.size.width - buttonWidth) / 2, 500, buttonWidth, 30);
-    [self.resolutionButton setTitle:@"Home page" forState:UIControlStateNormal];
-    [self.resolutionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.resolutionButton setTitle:@"home page" forState:UIControlStateNormal];
+    [self.resolutionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.resolutionButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
 }
 
