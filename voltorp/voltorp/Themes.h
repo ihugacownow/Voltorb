@@ -13,8 +13,6 @@
 
 +(UIFont *)textFieldFont;
 +(UIFont *)headerFont;
-
-
-
++(UIColor *)lightBlueBackground; 
 
 @end

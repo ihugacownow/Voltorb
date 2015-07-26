@@ -7,6 +7,8 @@
 //
 
 #import "SignUpView.h"
+#import "Themes.h"
+
 
 @interface SignUpView()
 
@@ -26,13 +28,14 @@
 {
     self = [super initWithFrame:frame];
     
+    
     if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
-        
+        self.backgroundColor = [Themes lightBlueBackground];
 
         
         self.nameField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.nameField.placeholder = @"Name";
+        self.nameField.font = [Themes textFieldFont];
 //        self.nameField.layer.borderWidth = 1.0;
 //        self.nameField.layer.borderColor = [UIColor blackColor].CGColor;
         

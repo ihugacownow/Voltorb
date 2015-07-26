@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "Themes.h"
 
 @interface DiscoverViewController : BaseViewController
 
