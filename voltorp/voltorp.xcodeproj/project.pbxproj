@@ -53,6 +53,8 @@
 		4E5C616D1B63EC1B00EC7D0A /* IssuesBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */; };
 		4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0954488F1B63CBDE001ECD22 /* SignUpView.m */; };
 		4E5C61701B643E5200EC7D0A /* EventCreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC813E1B641608009DBC60 /* EventCreationView.m */; };
+		4EDD08E21B647ADA003A6DE9 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD08E11B647ADA003A6DE9 /* CustomTextField.m */; };
+		4EDD08E51B647FEC003A6DE9 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD08E41B647FEC003A6DE9 /* CustomImageView.m */; };
 		83B3312915ED51E5FB47D7D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 515CC45633EAB096220F37B6 /* libPods.a */; };
 		CC877B1E1B644F57000F2A83 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B1D1B644F57000F2A83 /* Themes.m */; };
 		CC877B221B6459D3000F2A83 /* PostDiscTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC877B211B6459D3000F2A83 /* PostDiscTBController.m */; };
@@ -147,6 +149,10 @@
 		4E5C61691B63E72200EC7D0A /* CurrentIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentIssuesViewController.m; sourceTree = "<group>"; };
 		4E5C616B1B63EC1B00EC7D0A /* IssuesBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesBaseViewController.h; sourceTree = "<group>"; };
 		4E5C616C1B63EC1B00EC7D0A /* IssuesBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesBaseViewController.m; sourceTree = "<group>"; };
+		4EDD08E01B647ADA003A6DE9 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		4EDD08E11B647ADA003A6DE9 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		4EDD08E31B647FEC003A6DE9 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		4EDD08E41B647FEC003A6DE9 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
 		515CC45633EAB096220F37B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC877B1C1B644F57000F2A83 /* Themes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Themes.h; sourceTree = "<group>"; };
 		CC877B1D1B644F57000F2A83 /* Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
@@ -322,6 +328,8 @@
 				4E5C61161B63521A00EC7D0A /* AppDelegate.m */,
 				4E5C611E1B63521A00EC7D0A /* Images.xcassets */,
 				4E5C61111B63521A00EC7D0A /* Supporting Files */,
+				4EDD08E01B647ADA003A6DE9 /* CustomTextField.h */,
+				4EDD08E11B647ADA003A6DE9 /* CustomTextField.m */,
 			);
 			path = voltorp;
 			sourceTree = "<group>";
@@ -331,6 +339,8 @@
 			children = (
 				4E5C61121B63521A00EC7D0A /* Info.plist */,
 				4E5C61131B63521A00EC7D0A /* main.m */,
+				4EDD08E31B647FEC003A6DE9 /* CustomImageView.h */,
+				4EDD08E41B647FEC003A6DE9 /* CustomImageView.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -602,6 +612,7 @@
 				4E5C616F1B643E4000EC7D0A /* SignUpView.m in Sources */,
 				4CEC81341B63EF61009DBC60 /* IssueListingViewController.m in Sources */,
 				4CEC81191B63C47A009DBC60 /* ProfileView.m in Sources */,
+				4EDD08E21B647ADA003A6DE9 /* CustomTextField.m in Sources */,
 				4CEC81311B63EF52009DBC60 /* IssueListingView.m in Sources */,
 				4E5C61641B63E58800EC7D0A /* ArchiveViewController.m in Sources */,
 				4E5C61491B63692700EC7D0A /* EventDetailsViewController.m in Sources */,
@@ -614,6 +625,7 @@
 				4E5C616A1B63E72200EC7D0A /* CurrentIssuesViewController.m in Sources */,
 				4C137F631B642D0600DD702A /* ArchivedIssuesView.m in Sources */,
 				4CEC81421B641611009DBC60 /* EventCreationViewController.m in Sources */,
+				4EDD08E51B647FEC003A6DE9 /* CustomImageView.m in Sources */,
 				4E5C61171B63521A00EC7D0A /* AppDelegate.m in Sources */,
 				CC877B2E1B647B8D000F2A83 /* IssueCreationMapView.m in Sources */,
 				095448941B640231001ECD22 /* IssueTrackerView.m in Sources */,

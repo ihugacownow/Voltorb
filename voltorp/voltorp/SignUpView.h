@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTextField.h"
 
 @interface SignUpView : UIView
 
 @property (strong, nonatomic) UIButton *signUpButton;
-@property (strong, nonatomic) UITextField *nameField;
-@property (strong, nonatomic) UITextField *emailField;
-@property (strong, nonatomic) UITextField *hpNumberField;
-@property (strong, nonatomic) UITextField *ICField;
-@property (strong, nonatomic) UITextField *passwordField;
+@property (strong, nonatomic) CustomTextField *nameField;
+@property (strong, nonatomic) CustomTextField *emailField;
+@property (strong, nonatomic) CustomTextField *hpNumberField;
+@property (strong, nonatomic) CustomTextField *ICField;
+@property (strong, nonatomic) CustomTextField *passwordField;
 
 // UIImageView for photo
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;

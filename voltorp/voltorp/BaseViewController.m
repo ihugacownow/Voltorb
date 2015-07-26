@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "Themes.h"
 
 @interface BaseViewController ()
 
@@ -21,6 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.originalCenter = CGPointMake(self.view.center.x, self.view.center.y);
+    self.view.backgroundColor = [UIColor orangeColor];
+
 
 }
 
@@ -54,7 +57,7 @@
 - (void)keyboardDidShow:(NSNotification *)notification
 {
     // Assign new frame to your view
-    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y - 200);
+    self.view.center = CGPointMake(self.originalCenter.x, self.originalCenter.y - 100);
     
     
 }

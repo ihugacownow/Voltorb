@@ -11,11 +11,19 @@
 @implementation Themes
 
 +(UIFont *)textFieldFont {
-    return [UIFont fontWithName:@"HelveticaNeue-Light"  size:15.00];
+    return [UIFont fontWithName:@"HelveticaNeue-Light"  size:18.00];
 }
 
 +(UIColor *)lightBlueBackground {
-    return [UIColor colorWithRed:128 green:241 blue:255 alpha:1.00];
+    return [UIColor colorWithRed:115 green:241 blue:255 alpha:1.00];
+}
+
++(UIColor *)darkBlue {
+    return [UIColor colorWithRed:21 green:144 blue:205 alpha:1];
+}
+
++(UIFont *)textFieldBiggerFont {
+    return [UIFont fontWithName:@"HelveticaNeue"  size:25.00];
 }
 
 @end
