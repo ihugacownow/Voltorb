@@ -31,7 +31,6 @@
     
     if (self) {
         self.backgroundColor = [Themes lightBlueBackground];
-
         
         self.nameField = [[UITextField alloc] initWithFrame: CGRectZero];
         self.nameField.placeholder = @"Name";
@@ -81,7 +80,7 @@
 
 - (void) layoutSubviews
 {
-    float topBound = 180; // y coordinate of first field
+    float topBound = 210; // y coordinate of first field
     float leftMargin = 30;
     float width = self.bounds.size.width - leftMargin * 2;
     float height = 30;
@@ -98,7 +97,7 @@
     
     // edit image view
     double frameBuffer = 100;
-    self.imageView.frame = CGRectMake(frameBuffer, 40, self.bounds.size.width - (frameBuffer * 2), self.bounds.size.width - (frameBuffer * 2));
+    self.imageView.frame = CGRectMake(frameBuffer, 70, self.bounds.size.width - (frameBuffer * 2), self.bounds.size.width - (frameBuffer * 2));
 }
 
 - (void) createImageView {

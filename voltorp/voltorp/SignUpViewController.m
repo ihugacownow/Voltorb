@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
     
     self.signUpView = [[SignUpView alloc] initWithFrame: CGRectZero];
-    self.view.backgroundColor = [Themes lightBlueBackground];
+//    self.view.backgroundColor = [Themes lightBlueBackground];
     [self.view addSubview: self.signUpView];
     [self.signUpView.signUpButton addTarget:self action:@selector(goToDiscoverVC) forControlEvents: UIControlEventTouchUpInside];
         [self addGestureRecognizers];
